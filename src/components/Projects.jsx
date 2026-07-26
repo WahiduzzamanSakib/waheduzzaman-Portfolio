@@ -1,132 +1,220 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { GrGithub } from 'react-icons/gr';
-import projects from '../../public/projects.json';
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
+const ITEMS_PER_PAGE = 6;
 
 const AllProjects = () => {
-  // ===== Pagination Logic =====
-  const itemsPerPage = 6;
+
+  const [projects, setProjects] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
 
-  const totalPages = Math.ceil(projects.length / itemsPerPage);
+  // Fetch Projects
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch("/projects.json", {
+          cache: "no-store",
+        });;
+        if (!res.ok) {
+          throw new Error("Failed to load projects");
+        }
+        const data = await res.json();
+        setProjects(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-
-  const currentProjects = projects.slice(
-    startIndex,
-    startIndex + itemsPerPage
+  const totalPages = Math.ceil(
+    projects.length / ITEMS_PER_PAGE
   );
 
+  const currentProjects = useMemo(() => {
+    const start =
+      (currentPage - 1) * ITEMS_PER_PAGE;
+
+    return projects.slice(
+      start,
+      start + ITEMS_PER_PAGE
+    );
+  }, [projects, currentPage]);
+
+  if (loading) {
+    return (
+      <section className="py-20 text-center">
+        <p className="text-primary animate-pulse">
+          Loading projects...
+        </p>
+      </section>
+    );
+  }
+
   return (
-    <section
-      className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-surface-bright"
-      id="projects"
-    >
-      {/* HEADER */}
-      <div className="flex justify-between items-end mb-16">
-        <div>
-          <h2 className="font-headline-lg text-headline-lg text-primary">
-            Porojects
+    <div className="bg-gray-300 dark:bg-[#0b0b31]">
+      <section
+        id="projects"
+        className="py-12 px-6 md:px-12 max-w-7xl mx-auto border-t border-surface-bright"
+      >
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16 flex  flex-col text-center"
+        >
+          <h2 className="text-4xl font-mono md:text-5xl font-bold text-primary">
+            My Projects
           </h2>
 
-          <p className="text-on-surface-variant mt-3 text-lg">
+          <p className="mt-4 text-lg text-on-surface-variant">
             Latest commercial projects and open source work.
           </p>
-        </div>
-      </div>
+        </motion.div>
 
-      {/* GRID */}
-      <div className="grid md:grid-cols-3 gap-12">
-        {currentProjects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="bg-surface-container border border-surface-bright rounded-lg overflow-hidden group hover:border-secondary transition-all duration-500"
-          >
-            {/* IMAGE */}
-            <div className="h-56 overflow-hidden relative">
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                src={project.image}
-                alt={project.title}
-              />
 
-              <div className="absolute inset-0 bg-background/40 group-hover:bg-transparent transition-colors duration-500"></div>
-            </div>
+        {/* PROJECT GRID */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-            {/* CONTENT */}
-            <div className="p-8">
-              <h4 className="font-headline-md text-xl text-primary mb-3 group-hover:text-secondary transition-colors">
-                {project.title}
-              </h4>
+          {currentProjects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
 
-              <p className="text-on-surface-variant text-sm mb-6 leading-relaxed line-clamp-3">
-                {project.desc}
-              </p>
+              className="group overflow-hidden rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl
+          border border-gray-200 dark:border-white/10 shadow-lg shadow-black/5 dark:shadow-black/30
+          hover:border-secondary/70 hover:shadow-xl hover:shadow-secondary/10 transition-all duration-500"
+            >
+              {/* IMAGE */}
+              <div className="relative h-56 overflow-hidden">
 
-              {/* TAGS */}
-              <div className="flex flex-wrap gap-2.5 mb-8">
-                {project.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 bg-surface-container-high text-secondary text-[11px] font-label-mono rounded border border-surface-bright"
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover saturate-50 group-hover:saturate-100 group-hover:scale-110 transition-all duration-700"
+                  priority
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent
+              group-hover:from-black/20 transition duration-500"
+                />
+              </div>
+
+              {/* CONTENT */}
+              <div className="p-7">
+                <h3 className="text-xl font-semibold text-primary group-hover:text-secondary transition">
+                  {project.title}
+                </h3>
+
+                <p className="mt-4 text-sm text-on-surface-variant dark:text-gray-400 leading-relaxed line-clamp-3">
+                  {project.desc}
+                </p>
+
+                {/* TAGS */}
+                <div className="flex flex-wrap gap-2 mt-6">
+
+                  {project.tags.map(tag => (
+                    <span
+                      key={tag}
+                      className=" px-3 py-1 rounded-full text-sm bg-secondary/10 dark:bg-secondary/20 border-2 border-cyan-800
+                      text-secondary hover:bg-secondary hover:text-on-secondary hover:scale-110 hover:text-md transition-all duration-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+
+                {/* BUTTONS */}
+                <div className="flex gap-4 mt-8">
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-gray-800 dark:border-white
+                text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm"
                   >
-                    {tag}
-                  </span>
-                ))}
+                    <FaGithub size={20} /> Github
+                  </a>
+
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-black dark:border-cyan-400
+                    text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm"
+                  >
+                    <FaExternalLinkAlt /> Live Link
+                  </a>
+                </div>
               </div>
+            </motion.article>
+          ))}
+        </div>
 
-              {/* BUTTONS */}
-              <div className="flex gap-4">
-                {/* GitHub Button */}
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center hover:rounded-full justify-center gap-2 bg-surface-container-high border border-surface-bright text-primary py-3 rounded text-xs font-label-mono hover:border-secondary transition-all"
-                >
-                  <GrGithub size={20} />
-                  GitHub
-                </a>
+        {/* PAGINATION */}
+        {
+          totalPages > 1 && (
+            <div className="flex justify-center items-center cursor-pointer gap-3 mt-16">
 
-                {/* Live Demo Button */}
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex items-center hover:rounded-full justify-center gap-2 bg-secondary text-on-secondary py-3 rounded text-xs font-label-mono font-bold shadow-lg hover:opacity-90 transition-all"
-                >
-                  <span className="material-symbols-outlined text-sm">
-                    open_in_new
-                  </span>
+              <button
+                disabled={currentPage === 1}
+                onClick={() =>
+                  setCurrentPage(prev => prev - 1)
+                }
+                className="p-3 rounded-full border cursor-pointer border-surface-bright disabled:opacity-40">
+                <FaChevronLeft />
+              </button>
 
-                  Live Demo
-                </a>
-              </div>
+              {
+                Array.from({
+                  length: totalPages
+                }).map((_, index) => (
+
+                  <button
+                    key={index}
+                    onClick={() =>
+                      setCurrentPage(index + 1)
+                    }
+                    className={`w-10 h-10 cursor-pointer rounded-full border transition
+                ${currentPage === index + 1
+                        ? "bg-secondary text-on-secondary border-secondary"
+                        : "border-surface-bright text-primary hover:border-secondary"
+                      }`}
+                  >
+                    {index + 1}
+                  </button>
+                ))
+              }
+
+              <button
+                disabled={currentPage === totalPages}
+                onClick={() =>
+                  setCurrentPage(prev => prev + 1)
+                }
+                className="p-3 rounded-full border cursor-pointer border-surface-bright disabled:opacity-40">
+                <FaChevronRight />
+              </button>
             </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* PAGINATION */}
-      <div className="flex justify-center mt-16 gap-3">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrentPage(i + 1)}
-            className={`px-5 py-2 rounded border transition-all ${currentPage === i + 1
-              ? 'bg-secondary text-on-secondary border-secondary'
-              : 'border-surface-bright text-primary hover:border-secondary'
-              }`}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
-    </section>
+          )
+        }
+      </section>
+    </div>
   );
 };
 

@@ -1,16 +1,19 @@
 "use client"
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
+import { ThemeToggle } from "../theme-toggle";
+import { Link } from "@heroui/react";
+
 
 const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "home" },
     { name: "About", href: "about" },
     { name: "Skills", href: "skills" },
-    { name: "Qualification", href: "qualification" },
     { name: "Projects", href: "projects" },
+    { name: "Qualification", href: "qualification" },
     { name: "Contact", href: "contact" },
   ];
 
@@ -60,56 +63,69 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-white/10"
+      className="fixed top-0 left-0 w-full z-50 dark:bg-black/70 bg-gray-600 dark:text-white backdrop-blur-md border-b border-white/10"
     >
-      <div className="flex items-center justify-between h-20 px-6 md:px-16 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between h-20 px-6 md:px-16 max-w-7xl mx-auto ">
 
         {/* Logo */}
-        <Image src="/portogo.png" alt="logo" width={40} height={40} className="rounded-full object-cover" />
-     
+        {/* <Image src="/portogo.png" 
+        alt="logo" width={40} height={40} 
+        className="rounded-full object-cover" /> */}
+        <Link href="/">
+          <span
+            className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-900
+                       dark:from-cyan-300 dark:via-blue-400 dark:to-indigo-400
+                        bg-clip-text text-transparent"
+          >
+            Waheduzzaman
+          </span>
+        </Link>
+
+
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-8">
+
+        <div className="hidden md:flex items-center gap-6 px-8 py-3 rounded-full border
+         border-slate-700/60 bg-[#0f172a]/80 backdrop-blur-md shadow-lg">
           {navLinks.map((link) => (
-            <button
+            <a
               key={link.href}
-              onClick={() => handleClick(link.href)}
-              className={`relative text-sm font-medium transition-all duration-300 ${
-                active === link.href
-                  ? "text-cyan-400"
-                  : "text-gray-400 hover:text-cyan-400"
-              }`}
+              href={`#${link.href}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleClick(link.href);
+              }}
+              className={`text-sm font-semibold transition-colors duration-300 ${active === link.href
+                ? "text-cyan-400"
+                : "text-slate-300 hover:text-white"
+                }`}
             >
               {link.name}
-
-              {/* underline animation */}
-              <span
-                className={`absolute left-0 -bottom-1 h-[2px] bg-cyan-400 transition-all duration-300 ${
-                  active === link.href ? "w-full" : "w-0"
-                }`}
-              />
-            </button>
+            </a>
           ))}
         </div>
 
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white text-3xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <HiX /> : <HiMenu />}
-        </button>
+          <button
+            className="md:hidden dark:text-white text-3xl"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <HiX /> : <HiMenu />}
+          </button>
 
-        
+          {/* Hire Me Button (desktop only) */}
 
-        {/* Hire Me Button (desktop only) */}
-        <button className="hidden md:block bg-cyan-400 text-black font-semibold px-4 py-2 rounded hover:rounded-full hover:scale-105 active:scale-95 transition">
-          Hire Me
-        </button>
+          <button onClick={() => handleClick("contact")} className="hidden md:block bg-cyan-400 text-black cursor-pointer font-semibold px-4 py-2 rounded hover:rounded-full hover:scale-105 active:scale-95 transition">
+            Hire Me
+          </button>
+
+        </div>
+
       </div>
 
-     
+
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
@@ -118,18 +134,19 @@ const Navbar = () => {
             <button
               key={link.href}
               onClick={() => handleClick(link.href)}
-              className={`text-sm font-medium ${
-                active === link.href ? "text-cyan-400" : "text-gray-400"
-              }`}
+              className={`text-sm font-medium cursor-pointer ${active === link.href ? "text-cyan-400" : "text-gray-400"
+                }`}
             >
               {link.name}
             </button>
           ))}
 
           {/* Hire Me button in mobile menu */}
-          <button className="bg-cyan-400 text-black hover:rounded-full font-semibold px-4 py-2 rounded">
+
+          <button className="bg-cyan-400 text-black hover:rounded-full font-semibold px-4 py-2 rounded transition-all">
             Hire Me
           </button>
+
         </div>
       )}
     </motion.nav>

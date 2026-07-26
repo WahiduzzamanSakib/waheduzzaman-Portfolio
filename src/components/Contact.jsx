@@ -1,216 +1,243 @@
-import React, { useRef } from 'react';
-import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
+"use client";
 
-const Contact = () => {
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import {
+  FaCheck,
+  FaLinkedin,
+  FaEnvelope,
+  FaSpinner,
+  FaPaperPlane,
+  FaGithub,
+  FaClock,
+  FaMapMarkerAlt
+} from "react-icons/fa";
 
-  const formRef = useRef();
+export default function Contact() {
+  const formRef = useRef(null);
+  const [status, setStatus] = useState("idle"); // "idle" | "loading" | "success" | "error"
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
+    if (!formRef.current) return;
 
-    emailjs
-      .sendForm(
-        'service_kn8aqjq', // Your Service ID
-        'template_l4knhwn', // Replace with your Template ID
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
         formRef.current,
-        '8EYx2bh7SJlvVSPgP' // Replace with your Public Key
-      )
-      .then(
-        () => {
-          alert('Message sent successfully!');
-          formRef.current.reset();
-        },
-        (error) => {
-          alert('Failed to send message!');
-          console.log(error.text);
-        }
+        process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY
       );
+
+      setStatus("success");
+      formRef.current.reset();
+
+      // Reset state back to idle after 4 seconds
+      setTimeout(() => setStatus("idle"), 4000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus("error");
+      setErrorMessage("Failed to send message. Please try again.");
+    }
   };
 
   return (
-    <section
-      className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto"
-      id="contact"
-    >
-      <div className="bg-surface-container rounded-xl overflow-hidden border border-surface-bright shadow-2xl">
-        <div className="p-10 md:p-20">
 
-          {/* Header */}
-          <div className="text-center mb-20">
-            <h2 className="font-headline-lg text-headline-lg text-primary">
-              Get In Touch
-            </h2>
+    <div id="contact" className="bg-green-50 dark:bg-[#06052e]">
+      {/* Header */}
 
-            <p className="text-secondary font-label-mono text-sm mt-2">
-              Contact Me
-            </p>
-          </div>
+      <div className="text-center pt-8  pb-10">
+        <h2
+          className=" mt-5 text-4xl sm:text-5xl font-black tracking-tigh 
+              dark:text-white">
+          Get <span className="text-blue-400">In Touch</span>
+        </h2>
 
-          <div className="grid lg:grid-cols-2 gap-20">
 
-            {/* LEFT SIDE */}
-            <div className="space-y-10">
 
-              <h3 className="text-center font-headline-md text-2xl text-primary">
-                Talk to me
-              </h3>
+        <p className="
+            mt-4 max-w-xl mx-auto text-sm sm:text-base dark:text-white">
+          Have a project idea or want to collaborate?
+          Drop me a message and I'll get back to you.
+        </p>
+      </div>
 
-              <div className="space-y-6">
 
-                {/* Email Card */}
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  className="bg-background border border-surface-bright p-8 rounded text-center group hover:border-secondary transition-all"
-                >
-                  <div className="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-secondary/20 transition-all">
-                    <span className="material-symbols-outlined text-secondary text-2xl">
-                      mail
-                    </span>
+      <section  className="pb-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+          {/* LEFT SIDE - Contact Form */}
+
+          <div className="lg:col-span-5 bg-[#0f0e38] text-white rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                Let's start a conversation
+              </h2>
+              <p className="text-slate-300 text-sm leading-relaxed mb-8">
+                Whether you're looking to collaborate, have a question, or just want to connect, I'm here and ready to help bring your ideas to life.
+              </p>
+
+              {/* Info Cards List */}
+              <div className="space-y-4 mb-8">
+
+                {/* EMAIL CARD */}
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center text-slate-200 shrink-0">
+                    <FaEnvelope className="text-lg" />
                   </div>
+                  <div className="overflow-hidden">
+                    <p className="text-xs text-slate-400">Email me at</p>
+                    <a href="mailto:wahidzamanpg@gmail.com" className="text-sm font-semibold text-white hover:underline truncate block">
+                      wahidzamanpg@gmail.com
+                    </a>
+                  </div>
+                </div>
 
-                  <h4 className="text-sm font-bold text-primary uppercase tracking-wider">
-                    Email
-                  </h4>
-
-                  <p className="text-xs text-on-surface-variant mt-2 mb-6">
-                    wahidzamanpg@gmail.com
-                  </p>
-
-                  <a
-                    className="inline-flex items-center gap-2 text-sm text-secondary hover:underline transition-all"
-                    href="mailto:wahidzamanpg@gmail.com"
-                  >
-                    Write me
-                    <span className="material-symbols-outlined text-sm">
-                      arrow_forward
-                    </span>
-                  </a>
-                </motion.div>
-
-                {/* LinkedIn Card */}
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  className="bg-background border border-surface-bright p-8 rounded text-center group hover:border-secondary transition-all"
-                >
-                  <div className="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-5 group-hover:bg-secondary/20 transition-all">
-
-                    {/* LinkedIn SVG */}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="w-6 h-6 text-secondary"
+                {/* GITHUB CARD */}
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center text-slate-200 shrink-0">
+                    <FaGithub className="text-lg" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <p className="text-xs text-slate-400">Check my code on</p>
+                    <a
+                      href="https://github.com/WahiduzzamanSakib"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-white hover:underline truncate block"
                     >
-                      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 23.5h4V7.98h-4V23.5zM8.5 7.98h3.83v2.12h.05c.53-1 1.83-2.12 3.77-2.12 4.03 0 4.78 2.65 4.78 6.1v9.42h-4v-8.36c0-2-.04-4.58-2.79-4.58-2.8 0-3.23 2.18-3.23 4.44v8.5h-4V7.98z"/>
-                    </svg>
-
+                      Github
+                    </a>
                   </div>
+                </div>
 
-                  <h4 className="text-sm font-bold text-primary uppercase tracking-wider">
-                    LinkedIn
-                  </h4>
-
-                  <p className="text-xs text-on-surface-variant mt-2 mb-6">
-                    Md. Waheduzzaman
-                  </p>
-
-                  <a
-                    className="inline-flex items-center gap-2 text-sm text-secondary hover:underline transition-all"
-                    href="https://www.linkedin.com/in/waheduzzaman-md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Connect
-                    <span className="material-symbols-outlined text-sm">
-                      arrow_forward
-                    </span>
-                  </a>
-                </motion.div>
+                {/* LINKEDIN CARD */}
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center text-slate-200 shrink-0">
+                    <FaLinkedin className="text-lg text-blue-400" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <p className="text-xs text-slate-400">Connect with me on</p>
+                    <a
+                      href="https://www.linkedin.com/in/waheduzzaman-md"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-white hover:underline truncate block"
+                    >
+                      Linkedin
+                    </a>
+                  </div>
+                </div>
 
               </div>
             </div>
 
-            {/* RIGHT SIDE */}
-            <div className="space-y-10">
+            {/* Quick response badge */}
+            <div className="mt-8 p-3 rounded-xl bg-[#1a1848] border border-indigo-900/30 flex items-center gap-2 text-xs text-slate-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>Quick response guaranteed</span>
+            </div>
+          </div>
 
-              <h3 className="text-center font-headline-md text-2xl text-primary">
-                 Let's Work Together
-              </h3>
+          {/* RIGHT SIDE - Information Panel */}
+          <div className="lg:col-span-7 bg-[#9da5b4] text-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between">
+            <div>
+              {/* Header */}
+              <div className="flex items-center mb-2 gap-2 text-2xl sm:text-3xl font-bold  text-slate-900">
+                <span className="w-3 h-3  rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <h2>Send me a message</h2>
+              </div>
 
-              <form
-                ref={formRef}
-                className="space-y-8"
-                onSubmit={sendEmail}
-              >
+              {/* Form */}
+              <form ref={formRef} onSubmit={sendEmail} className="space-y-5">
 
                 {/* Name */}
-                <div className="relative">
-                  <label className="absolute -top-3 left-4 px-2 bg-surface-container text-[11px] uppercase font-label-mono text-secondary z-10">
-                    Name
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+                    YOUR NAME
                   </label>
-
                   <input
-                    name="user_name"
-                    className="w-full bg-background border border-surface-bright rounded p-5 text-primary focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all placeholder:text-on-surface-variant/30 outline-none"
-                    placeholder="Insert your Name"
                     type="text"
+                    name="user_name"
                     required
+                    placeholder="Enter your full name"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#c5cbd3] text-slate-900 placeholder-slate-500 border border-transparent focus:border-indigo-500 focus:bg-white focus:outline-none transition-all duration-200"
                   />
                 </div>
 
                 {/* Email */}
-                <div className="relative">
-                  <label className="absolute -top-3 left-4 px-2 bg-surface-container text-[11px] uppercase font-label-mono text-secondary z-10">
-                    Email
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+                    EMAIL ADDRESS
                   </label>
-
                   <input
-                    name="user_email"
-                    className="w-full bg-background border border-surface-bright rounded p-5 text-primary focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all placeholder:text-on-surface-variant/30 outline-none"
-                    placeholder="Insert your email"
                     type="email"
+                    name="user_email"
                     required
+                    placeholder="your@email.com"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#c5cbd3] text-slate-900 placeholder-slate-500 border border-transparent focus:border-indigo-500 focus:bg-white focus:outline-none transition-all duration-200"
                   />
                 </div>
 
                 {/* Message */}
-                <div className="relative">
-                  <label className="absolute -top-3 left-4 px-2 bg-surface-container text-[11px] uppercase font-label-mono text-secondary z-10">
-                    Write Your Message
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+                    YOUR MESSAGE
                   </label>
-
                   <textarea
                     name="message"
-                    className="w-full bg-background border border-surface-bright rounded p-5 text-primary focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all placeholder:text-on-surface-variant/30 outline-none"
-                    placeholder="Write your message"
-                    rows="6"
+                    rows={4}
                     required
-                  ></textarea>
+                    placeholder="Tell me about your project, collaboration ideas,"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#c5cbd3] text-slate-900 placeholder-slate-500 border border-transparent focus:border-indigo-500 focus:bg-white focus:outline-none transition-all duration-200 resize-none"
+                  />
                 </div>
+
+                {status === "error" && (
+                  <p className="text-sm font-semibold text-red-600">
+                    {errorMessage}
+                  </p>
+                )}
 
                 {/* Submit Button */}
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-secondary text-on-secondary font-bold py-5 rounded hover:opacity-90 transition-all group flex items-center justify-center gap-3 shadow-xl"
+                  whileHover={{ scale: status === "idle" ? 1.01 : 1 }}
+                  whileTap={{ scale: status === "idle" ? 0.98 : 1 }}
+                  disabled={status === "loading" || status === "success"}
                   type="submit"
+                  className={`w-full py-4 rounded-xl font-semibold text-white flex items-center justify-center gap-2 transition-all duration-300 shadow-md ${status === "success"
+                    ? "bg-emerald-600"
+                    : "bg-[#3331b2] hover:bg-[#282693]"
+                    }`}
                 >
-                  Send Message
-
-                  <span className="material-symbols-outlined group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-                    send
-                  </span>
+                  {status === "loading" && (
+                    <>
+                      <FaSpinner className="animate-spin" />
+                      Sending...
+                    </>
+                  )}
+                  {status === "success" && (
+                    <>
+                      <FaCheck />
+                      Message Sent!
+                    </>
+                  )}
+                  {status === "idle" && (
+                    <>
+                      Send Message <FaPaperPlane className="text-sm" />
+                    </>
+                  )}
                 </motion.button>
-
               </form>
             </div>
-
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
-};
-
-export default Contact;
+}

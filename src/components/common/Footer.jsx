@@ -36,8 +36,7 @@ const Footer = () => {
 
     return (
         <footer
-            className="w-full bg-white dark:bg-cyan-950 border-t border-gray-200
-            dark:border-cyan-800 transition-colors duration-500"
+            className="w-full bg-cyan-950 dark:bg-[#131331] dark:text-white border-t border-cyan-600 dark:border-cyan-800 transition-colors duration-500"
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
 
@@ -65,7 +64,7 @@ const Footer = () => {
                             MERN Stack Developer
                         </p>
 
-                        <p className="mt-6 max-w-md leading-relaxed text-gray-600 dark:text-gray-300">
+                        <p className="mt-6 max-w-md leading-relaxed text-gray-400 dark:text-gray-300">
                             I build scalable full-stack web applications using MongoDB,
                             Express.js, React.js, and Node.js with modern interfaces,
                             clean architecture, and optimized performance.
@@ -84,7 +83,7 @@ const Footer = () => {
                                 <li key={name}>
                                     <a
                                         href={link}
-                                        className="group flex items-center gap-2 text-gray-600 dark:text-gray-300
+                                        className="group flex items-center gap-2 text-gray-400 dark:text-gray-300
                                         hover:text-blue-600 dark:hover:text-cyan-300 transition-all duration-300"
                                     >
                                         <span
@@ -108,7 +107,7 @@ const Footer = () => {
                             Connect
                         </h3>
 
-                        <p className="mb-6 text-gray-600 dark:text-gray-300">
+                        <p className="mb-6 text-gray-400 dark:text-gray-300">
                             Let's collaborate and create something impactful together.
                         </p>
 
@@ -162,8 +161,11 @@ const Footer = () => {
                         © 2026 Waheduzzaman. All rights reserved.
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Built with ❤️ using React.js, Node.js & MongoDB
+                        Built with ❤️  Next.js,
                     </p>
+                    {/* <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Built with ❤️ using React.js, Node.js & MongoDB
+                    </p> */}
 
                 </motion.div>
             </div>

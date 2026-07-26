@@ -18,7 +18,7 @@ const MERNJourney = () => {
     },
     {
       title: "Backend with Node & Express",
-      period: "Learning Stage",
+      period: "Learning ",
       desc: "Learning backend development and REST API creation.",
       tags: ["Node.js", "Express", "API"],
     },
@@ -31,53 +31,72 @@ const MERNJourney = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {journey.map((item, i) => {
-        const isActive = activeIndex === i;
+    <section className="min-h-screen transition-colors duration-500
+      bg-green-50 dark:bg-slate-950 p-8">
 
-        return (
-          <div
-            key={i}
-            onMouseEnter={() => setActiveIndex(i)}
-            onMouseLeave={() => setActiveIndex(null)}
-            className={`relative bg-surface-container border p-8 rounded transition-all duration-300 cursor-pointer
-              ${isActive
-                ? "border-secondary shadow-lg scale-[1.02]"
-                : "border-surface-bright"
-              }
-            `}
-          >
-            {/* Dot */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        {journey.map((item, i) => {
+          const isActive = activeIndex === i;
+
+          return (
             <div
-              className={`absolute -left-2 top-6 w-4 h-4 rounded-full transition-all duration-300
-                ${isActive ? "bg-secondary" : "bg-surface-bright"}
-              `}
-            />
+              key={i}
+              onMouseEnter={() => setActiveIndex(i)}
+              onMouseLeave={() => setActiveIndex(null)}
+              className={`
+                relative rounded-2xl p-8 cursor-pointer
+                transition-all duration-300 border backdrop-blur
+                bg-white/60 dark:bg-slate-900/80
+                ${isActive
+                  ? `border-indigo-500 shadow-xl shadow-indigo-500/20 scale-[1.03]`
+                  : `border-slate-200 dark:border-slate-800 hover:border-indigo-400`
+                }`}
+            >
 
-            <h3 className="text-xl font-bold text-primary">{item.title}</h3>
-            <p className="text-secondary text-sm">{item.period}</p>
-            <p className="text-gray-400 mt-4">{item.desc}</p>
+              {/* Timeline Dot */}
+              <div
+                className={`absolute -left-3 top-8 w-5 h-5 rounded-full border-4 transition-all duration-300
+                  ${isActive
+                    ? `bg-indigo-500 border-indigo-200 dark:border-indigo-900`
+                    : `bg-slate-300 dark:bg-slate-700 border-slate-100 dark:border-slate-950`}
+                `}
+              />
 
-            {/* Tags */}
-            <div className="flex gap-2 mt-4 flex-wrap">
-              {item.tags.map((tag, j) => (
-                <span
-                  key={j}
-                  className="
-                    text-xs px-3 py-1 rounded border border-secondary/30
-                    text-secondary transition-all duration-300
-                    hover:bg-secondary hover:text-black
-                    hover:scale-105
-                  "
-                >
-                  {tag}
-                </span>
-              ))}
+              {/* Content */}
+              <h3 className="text-xl font-bold dark:text-green-50 text-black">
+                {item.title}
+              </h3>
+
+              <p
+                className="text-sm mt-1 text-indigo-600 dark:text-indigo-400 font-medium"
+              >
+                {item.period}
+              </p>
+
+              <p
+                className="mt-4 leading-relaxed text-slate-600 dark:text-slate-400">
+                {item.desc}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-3 mt-6">
+                {item.tags.map((tag, j) => (
+
+                  <span
+                    key={j}
+                    className="px-3 py-1 rounded-full text-xs font-medium border text-indigo-600 dark:text-indigo-300
+                      border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/40
+                      transition-all duration-300 hover:bg-indigo-600 hover:text-white hover:scale-105 ">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 
