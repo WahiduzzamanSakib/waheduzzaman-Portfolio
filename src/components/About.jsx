@@ -56,7 +56,7 @@ export default function About() {
                 <span className="font-semibold font-mono text-blue-600 dark:text-blue-400">
                   Md.Waheduzzaman
                 </span>
-                 , a passionate web developer with experience in building responsive, modern, and user-friendly websites. I specialize in{" "}
+                , a passionate web developer with experience in building responsive, modern, and user-friendly websites. I specialize in{" "}
                 <span className="inline-flex items-center gap-1 font-semibold text-slate-900 dark:text-slate-100 bg-slate-200/80 dark:bg-slate-800 px-2 py-0.5 rounded text-sm">
                   <SiNextdotjs className="text-xs" /> Next.js
                 </span>
@@ -120,16 +120,31 @@ export default function About() {
             {/* CTA Button */}
             <div className="pt-4">
               <motion.a
-                href="/resume.pdf"
-                download
+                href="/Waheduzzaman_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium px-7 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 transition-all duration-300 group cursor-pointer"
               >
-                <span>Download Resume</span>
+                <span>View Resume</span>
                 <FiDownload className="text-lg group-hover:translate-y-0.5 transition-transform" />
               </motion.a>
             </div>
+
+            {/* <div className="pt-4">
+              <motion.a
+                href="/Waheduzzaman_Resume.pdf"
+                download
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600
+                 hover:from-blue-500 hover:to-indigo-500 text-white font-medium px-7 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 transition-all duration-300 group cursor-pointer"
+              >
+                <span>Download Resume</span>
+                <FiDownload className="text-lg group-hover:translate-y-0.5 transition-transform" />
+              </motion.a>
+            </div>  */}
           </motion.div>
 
 
