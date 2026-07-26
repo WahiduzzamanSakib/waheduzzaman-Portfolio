@@ -87,7 +87,7 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-             className="absolute -left-12 md:-left-20 top-1/3 bg-white/95 text-slate-900 font-semibold text-xs md:text-sm px-4 py-2 rounded-2xl shadow-xl z-30 backdrop-blur-md whitespace-nowrap">
+             className="absolute -left-12 md:-left-18 top-1/3 bg-white/95 text-slate-900 font-semibold text-xs md:text-sm px-4 py-2 rounded-2xl shadow-xl z-30 backdrop-blur-md whitespace-nowrap">
               Next.js
             </motion.div>
 
