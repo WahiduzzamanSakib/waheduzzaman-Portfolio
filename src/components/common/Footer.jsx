@@ -1,8 +1,30 @@
 "use client";
-import { FaEnvelope, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaArrowUp, FaEnvelope, FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
+    const [showTop, setShowTop] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const projects = document.getElementById("projects");
+            if (!projects) return;
+            const projectTop = projects.offsetTop;
+
+            if (window.scrollY >= projectTop) {
+                setShowTop(true);
+            } else {
+                setShowTop(false);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     const links = [
         ["About", "#about"],
         ["Skills", "#skills"],
@@ -20,18 +42,21 @@ const Footer = () => {
     };
 
     const item = {
-        hidden: {
-            opacity: 0,
-            y: 40,
-        },
+        hidden: { opacity: 0, y: 40 },
         show: {
-            opacity: 1,
-            y: 0,
+            opacity: 1, y: 0,
             transition: {
-                duration: 0.7,
-                ease: "easeOut",
+                duration: 0.7, ease: "easeOut",
             },
         },
+    };
+
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     };
 
     return (
@@ -169,6 +194,24 @@ const Footer = () => {
 
                 </motion.div>
             </div>
+
+            {showTop && (
+                <motion.button
+                    onClick={scrollToTop}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{
+                        y: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+                    }}
+
+                    className="fixed bottom-6 right-6 w-14 h-14 rounded-full flex  items-center justify-center bg-cyan-600
+                     hover:bg-cyan-500 text-white shadow-xl z-[999] border border-cyan-300 cursor-pointer"
+                >
+                    <FaArrowUp size={22} />
+                </motion.button>
+            )}
         </footer>
     );
 };
