@@ -13,17 +13,17 @@ import TechStack from "@/components/TechStack";
 export default function Home() {
   return (
     <div>
-      {/* <Hero />
-      <About />
-      <Features />
+       <Hero /> 
+      {/* <About /> */}
+      {/* <Features /> */}
 
-      <TechStack />
-      <Skills />
+      {/* <TechStack /> */}
+      {/* <Skills /> */}
 
-      <AllProjects />
+      {/* <AllProjects /> */}
 
-      <Qualifications />
-      <Contact/> */}
+      {/* <Qualifications /> */}
+      {/* <Contact/>  */}
     </div>
   );
 }
