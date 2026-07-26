@@ -15,7 +15,7 @@ const Hero = () => {
      dark:bg-gray-900 transition-colors duration-500">
 
 
-      {/* Background Animation */}
+      {/* Background Animation and Grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Cyan Glow */}
         <motion.div
