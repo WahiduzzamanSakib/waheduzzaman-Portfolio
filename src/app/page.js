@@ -15,7 +15,7 @@ export default function Home() {
     <div>
        <Hero /> 
       <About />
-      {/* <Features /> */}
+      <Features />
 
       {/* <TechStack /> */}
       {/* <Skills /> */}
