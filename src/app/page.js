@@ -20,7 +20,7 @@ export default function Home() {
       <TechStack />
       <Skills />
 
-      {/* <AllProjects /> */}
+      <AllProjects />
 
       {/* <Qualifications /> */}
       {/* <Contact/>  */}
