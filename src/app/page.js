@@ -23,7 +23,7 @@ export default function Home() {
       <AllProjects />
 
       <Qualifications />
-      {/* <Contact/>  */}
+      <Contact/> 
     </div>
   );
 }
