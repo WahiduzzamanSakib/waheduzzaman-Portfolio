@@ -18,7 +18,7 @@ export default function Home() {
       <Features />
 
       <TechStack />
-      {/* <Skills /> */}
+      <Skills />
 
       {/* <AllProjects /> */}
 
