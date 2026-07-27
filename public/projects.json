@@ -29,6 +29,20 @@
     "live": "https://pet-adoption-platform-mu.vercel.app"
   },
   {
+    "title": "Summer Essentials Store",
+    "desc": "E-commerce web app for browsing and viewing summer products with login and protected pages built using Next.js.",
+    "image": "https://i.ibb.co.com/hxM83XST/summer.png",
+    "tags": [
+      "Next.js",
+      "Tailwind CSS",
+      "MongoDB",
+      "Authentication",
+      "E-commerce"
+    ],
+    "github": "https://github.com/WahiduzzamanSakib/sun-cart",
+    "live": "https://sun-cart-c2md.vercel.app/"
+  },
+  {
     "title": "Github Issue Tracker",
     "desc": "Responsive Next.js eCommerce app with product browsing, login, and protected pages.",
     "image": "https://i.ibb.co.com/FqBfz6Y0/Gemini-Generated-Image-9qvy3q9qvy3q9qvy.png",
@@ -51,20 +65,6 @@
     ],
     "github": "https://github.com/WahiduzzamanSakib/Assignment-04",
     "live": "https://job-tracker-neon-delta.vercel.app/"
-  },
-  {
-    "title": "Summer Essentials Store",
-    "desc": "E-commerce web app for browsing and viewing summer products with login and protected pages built using Next.js.",
-    "image": "https://i.ibb.co.com/hxM83XST/summer.png",
-    "tags": [
-      "Next.js",
-      "Tailwind CSS",
-      "MongoDB",
-      "Authentication",
-      "E-commerce"
-    ],
-    "github": "https://github.com/WahiduzzamanSakib/sun-cart",
-    "live": "https://sun-cart-c2md.vercel.app/"
   },
   {
     "title": "Digital Tools Buying Website",

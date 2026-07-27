@@ -13,7 +13,7 @@ import TechStack from "@/components/TechStack";
 export default function Home() {
   return (
     <div>
-       <Hero /> 
+      <Hero />
       <About />
       <Features />
 
@@ -23,7 +23,7 @@ export default function Home() {
       <AllProjects />
 
       <Qualifications />
-      <Contact/> 
+      <Contact />
     </div>
   );
 }
