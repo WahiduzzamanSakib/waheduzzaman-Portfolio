@@ -4,7 +4,7 @@ Hi, I'm **Md. Waheduzzaman**, a passionate **MERN Stack Developer** and **Econom
 
 ## 🚀 About Me
 
-I enjoy creating full-stack applications, solving problems, and exploring new technologies. My goal is to transform ideas into impactful digital solutions through efficient and scalable code.
+Passionate about building full-stack applications, solving problems, and exploring new technologies to create scalable and user-friendly digital solutions.
 
 ## 🛠️ Technologies I Use
 
