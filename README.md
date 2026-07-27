@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 👋 Welcome to My Portfolio
 
-## Getting Started
+Hi, I'm **Md. Waheduzzaman**, a passionate **MERN Stack Developer** and **Economics student from Bangladesh**. I build clean, responsive, and user-friendly web applications with modern technologies.
 
-First, run the development server:
+## 🚀 About Me
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Passionate about building full-stack applications, solving problems, and exploring new technologies to create scalable and user-friendly digital solutions.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technologies I Use
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Frontend
+- React.js
+- JavaScript (ES6+)
+- HTML5 & CSS3
+- Tailwind CSS
+- React Router
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- REST APIs
 
-## Learn More
+### Tools & Others
+- Git & GitHub
+- Firebase Authentication
+- Stripe Payments
+- Netlify / Vercel Deployment
 
-To learn more about Next.js, take a look at the following resources:
+## 📌 Top Projects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🏠 Property Rental Platform
+A full-stack rental platform with property listings, bookings, payments, favorites, reviews, secure authentication, and admin management.
+ <br> 
+🔗 **Live Demo:** https://quick-rent-five.vercel.app 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🐾 Pet Adoption Platform
+A MERN Stack application connecting pet owners, shelters, and adopters through pet listings, adoption requests, and management features.
+ <br>  
+ 🔗 **Live Demo:**  https://pet-adoption-platform-mu.vercel.app
 
-## Deploy on Vercel
+## 📈 Current Goals
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Building scalable full-stack applications
+- Improving backend architecture and database design
+- Learning advanced React and cloud technologies
+- Contributing to open-source projects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📫 Contact Me
+
+- Portfolio: https://waheduzzaman-portfolio.vercel.app
+- GitHub: https://github.com/WahiduzzamanSakib
+- LinkedIn: https://www.linkedin.com/in/waheduzzaman-md
+- Email: wahidzamanpg@gmail.com
+
+---
+
+⭐ Thanks for visiting my portfolio!
