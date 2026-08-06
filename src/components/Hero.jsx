@@ -5,6 +5,36 @@ import { TypeAnimation } from "react-type-animation";
 import Image from "next/image";
 
 import Link from "next/link";
+import { FiDownload, FiArrowRight } from "react-icons/fi";
+import { FaGithub, FaLinkedin, FaXTwitter, FaFacebook } from "react-icons/fa6";
+import { CgMail } from "react-icons/cg";
+
+const socials = [
+  {
+    name: "GitHub",
+    href: "https://github.com/WahiduzzamanSakib",
+    icon: FaGithub,
+    hoverColor: "hover:text-white hover:border-white/40 hover:bg-white/10",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/waheduzzaman-md",
+    icon: FaLinkedin,
+    hoverColor: "hover:text-blue-400 hover:border-blue-400/40 hover:bg-blue-500/10",
+  },
+  {
+    name: "G-mail",
+    href: "mailto:wahidzamanpg@gmail.com",
+    icon: CgMail,
+    hoverColor: "hover:text-cyan-400 hover:border-cyan-400/40 hover:bg-cyan-500/10",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/md.waheduzzaman.613163",
+    icon: FaFacebook,
+    hoverColor: "hover:text-indigo-400 hover:border-indigo-400/40 hover:bg-indigo-500/10",
+  },
+];
 
 const Hero = () => {
 
@@ -49,59 +79,23 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          whileHover={{ y: -5 }}
-          className="relative w-72 h-72 md:w-[420px] md:h-[420px] flex items-center justify-center"
+          whileHover={{ y: -10 }}
+          className="relative w-64 h-64 md:w-96 md:h-96"
         >
-          {/* Background Glow */}
-          <div className="absolute inset-4 rounded-full bg-blue-600/20 blur-3xl animate-pulse" />
 
-          {/* Top-Right Floating Shape (উপরের ডানপাশের স্কয়ার) */}
-          <motion.div
-            animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-6 right-4 w-12 h-12 md:w-16 md:h-16 bg-[#4a4d33]/80 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg z-0"
-          />
-
-          {/* Bottom-Left Floating Shape (নিচের বামপাশের স্কয়ার) */}
-          <motion.div
-            // animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
-            // transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-6 left-4 w-16 h-12 md:w-16 md:h-16 bg-[#2b4162]/80 backdrop-blur-md rounded-2xl border border-white/10 shadow-lg z-0"
-          />
-
-          {/* Main Outer Circle Frame */}
-          <div className="relative w-full h-full rounded-full border-4 border-slate-700/60 p-2 shadow-2xl flex items-center justify-center bg-slate-900/40 backdrop-blur-sm z-20">
-
-            {/* Inner Image Container */}
-            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-slate-500/30">
-              <Image
-                src="/wahid.png"
-                alt="Md Waheduzzaman"
-                fill
-                priority
-                className="object-cover transition duration-700 hover:scale-105"
-              />
-            </div>
-
-            {/* Floating Tag: Next.js  */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-             className="absolute -left-12 md:-left-18 top-1/3 bg-white/95 text-slate-900 font-semibold text-xs md:text-sm px-4 py-2 rounded-2xl shadow-xl z-30 backdrop-blur-md whitespace-nowrap">
-              Next.js
-            </motion.div>
-
-            {/* Floating Tag: React.js */}
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-             className="absolute -right-12 md:-right-14 bottom-1/3 bg-white/95 text-slate-900 font-semibold text-xs md:text-sm px-4 py-2 rounded-2xl shadow-xl z-30 backdrop-blur-md whitespace-nowrap"
-            >
-              React.js
-            </motion.div>
-
-          </div>
+          <div
+            className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/30 to-purple-500/30
+              blur-2xl animate-pulse"/>
+          <div
+            className=" absolute inset-0 rounded-full border-2 border-cyan-500/30 scale-110" />
+          <Image
+            src="/wahid.png"
+            alt="Md Waheduzzaman"
+            fill priority
+            className="object-cover rounded-full border-4 border-gray-700 dark:border-neutral-800
+    shadow-2xl  grayscale-0 transition duration-700"/>
         </motion.div>
+
 
         {/* Content */}
         <div className="max-w-3xl text-center lg:text-left">
@@ -129,7 +123,6 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: .5, delay: .2 }}
             className=" text-xl md:text-3xl font-semibold text-gray-300 dark:text-gray-300 mb-8">
-            {/* <span>I am  </span> */}
             <span
               className="text-transparent bg-clip-text font-mono bg-gradient-to-r from-cyan-400 to-blue-500">
               <TypeAnimation
@@ -150,8 +143,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: .5, delay: .3 }}
             className=" text-lg leading-relaxed text-gray-300 dark:text-gray-400 mb-10">
-            I build modern, scalable and user-focused web applications
-            using JavaScript technologies. Passionate about creating
+            I build modern, responsive web applications using React, Next.js, and JavaScript technologies. Passionate about creating
             fast, accessible and beautiful digital experiences.
           </motion.p>
 
@@ -161,20 +153,74 @@ const Hero = () => {
             transition={{ duration: .5, delay: .4 }}
             className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
 
-            <a href="#contact">
-              <button
-                className="px-8 py-3 rounded-full cursor-pointer font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 
-              shadow-lg shadow-cyan-500/20 hover:scale-105 transition">
-                Hire Me
-              </button>
-            </a>
+            <div className="pt-4">
+              <motion.a
+                href="/Waheduzzaman_Resume.pdf"
+                download
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600
+                 hover:from-blue-500 hover:to-indigo-500 text-white font-medium px-7 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 transition-all duration-300 group cursor-pointer"
+              >
+                <span>Download Resume</span>
+                <FiDownload className="text-lg group-hover:translate-y-0.5 transition-transform" />
+              </motion.a>
+            </div>
 
-            <button
-              className="px-8 py-3 rounded-full font-semibold border border-gray-500 dark:border-gray-700 text-white
-dark:text-white hover:bg-gray-800 cursor-pointer dark:hover:bg-neutral-900 transition">
-              View Projects
-            </button>
+            <div className="pt-4">
+              <motion.a
+                href="#projects"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-medium
+                  border border-slate-600 text-white
+                  hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-500/5
+                  dark:border-gray-700 dark:hover:border-cyan-400
+                  transition-all duration-300 cursor-pointer group"
+              >
+                <span>View Projects</span>
+                <FiArrowRight className="text-lg group-hover:translate-x-0.5 transition-transform" />
+              </motion.a>
+            </div>
           </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: .5, delay: .55 }}
+            className="flex items-center gap-4 justify-center lg:justify-start mt-8"
+          >
+            {socials.map((social, index) => {
+              const Icon = social.icon;
+              return (
+                <motion.a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  whileHover={{ y: -4 }}
+                  whileTap={{ scale: 0.92 }}
+                  className={`group relative flex items-center justify-center w-11 h-11 rounded-xl
+                    border border-slate-700 text-slate-400 bg-slate-900/40 backdrop-blur-sm
+                    transition-all duration-300 ${social.hoverColor}`}
+                >
+                  <Icon className="text-lg" />
+
+                  {/* Tooltip */}
+                  <span
+                    className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2
+                      px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-white
+                      opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap"
+                  >
+                    {social.name}
+                  </span>
+                </motion.a>
+              );
+            })}
+          </motion.div>
+
         </div>
       </div>
     </section>

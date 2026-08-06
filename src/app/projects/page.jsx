@@ -4,10 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Link from "next/link";
+import { LuLoaderCircle } from "react-icons/lu";
 
 const ITEMS_PER_PAGE = 6;
 
-const AllProjects = () => {
+const AllProjectsPage = () => {
 
   const [projects, setProjects] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -50,19 +52,19 @@ const AllProjects = () => {
 
   if (loading) {
     return (
-      <section className="py-20 text-center">
+      <section className="bg-gray-500 text-white py-20 text-center">
         <p className="text-primary animate-pulse">
-          Loading projects...
+          Loading projects... <LuLoaderCircle className="animate-spin-slow inline-block w-6 h-6" />
         </p>
       </section>
     );
   }
 
   return (
-    <div className="bg-gray-300 dark:bg-[#0b0b31]">
+    <div className="pb-12 pt-24 px-6 md:px-12 border-t bg-gray-300 dark:bg-[#0b0b31] ">
       <section
         id="projects"
-        className="py-12 px-6 md:px-12 max-w-7xl mx-auto border-t border-surface-bright"
+        className=" max-w-7xl mx-auto  border-surface-bright"
       >
         {/* HEADER */}
         <motion.div
@@ -75,12 +77,10 @@ const AllProjects = () => {
           <h2 className="text-4xl font-mono md:text-5xl font-bold text-primary">
             My Projects
           </h2>
-
           <p className="mt-4 text-lg text-on-surface-variant">
             Latest commercial projects and open source work.
           </p>
         </motion.div>
-
 
         {/* PROJECT GRID */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -142,17 +142,6 @@ const AllProjects = () => {
                 <div className="flex gap-4 mt-8">
 
                   <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-gray-800 dark:border-white
-                text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm"
-                  >
-                    <FaGithub size={20} /> Github
-                  </a>
-
-                  <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -161,6 +150,14 @@ const AllProjects = () => {
                   >
                     <FaExternalLinkAlt /> Live Link
                   </a>
+
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-gray-800 dark:border-white text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm"
+                  >
+                    View Details
+                  </Link>
+
                 </div>
               </div>
             </motion.article>
@@ -218,4 +215,4 @@ const AllProjects = () => {
   );
 };
 
-export default AllProjects;
+export default AllProjectsPage;

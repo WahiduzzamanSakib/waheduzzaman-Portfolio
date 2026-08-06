@@ -1,30 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  FiDownload,
-  FiCode,
-  FiLayout,
-  FiSmartphone,
-  FiSun,
-  FiMoon
-} from "react-icons/fi";
+import { FaHandshake, FaBookOpen } from "react-icons/fa";
+
 import { SiNextdotjs, SiReact, SiTailwindcss } from "react-icons/si";
 
 export default function About() {
 
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  const skillBadges = [
-    { name: "Frontend", icon: FiCode, color: "text-blue-500 bg-blue-500/10 border-blue-500/20" },
-    { name: "UI/UX", icon: FiLayout, color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20" },
-    { name: "Responsive", icon: FiSmartphone, color: "text-purple-500 bg-purple-500/10 border-purple-500/20" },
-  ];
-
   return (
-    <div className="bg-green-50/65">
+    <div className="scroll-mt-24 bg-green-50/65">
       <section id="about" className="relative min-h-screen flex items-center justify-center bg-green-50 dark:bg-[#0B1120] text-slate-800 dark:text-slate-200 px-6 py-16 transition-colors duration-300">
 
 
@@ -53,10 +39,10 @@ export default function About() {
             <div className="space-y-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
               <p>
                 Hello! I&apos;m{" "}
-                <span className="font-semibold font-mono text-blue-600 dark:text-blue-400">
-                  Md.Waheduzzaman
+                <span className="font-semibold font-mono text-blue-600 dark:text-blue-400 mr-1">
+                  Md.Waheduzzaman.
                 </span>
-                , a passionate web developer with experience in building responsive, modern, and user-friendly websites. I specialize in{" "}
+                My programming journey started through curiosity and self-learning. Without a classroom or bootcamp, I learned by exploring tutorials, experimenting, and solving problems through trial and error. Today, I build modern web experiences with{" "}
                 <span className="inline-flex items-center gap-1 font-semibold text-slate-900 dark:text-slate-100 bg-slate-200/80 dark:bg-slate-800 px-2 py-0.5 rounded text-sm">
                   <SiNextdotjs className="text-xs" /> Next.js
                 </span>
@@ -70,8 +56,14 @@ export default function About() {
                 </span>
                 .
               </p>
-              <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base">
-                I love turning ideas into beautiful, functional web applications. When I&apos;m not coding, you can find me exploring the latest web technologies, designing UI/UX interfaces, or contributing to open-source projects.
+              <p>
+                I enjoy frontend development most turning ideas and designs into interactive experiences people can use. I love refining the small details like spacing, motion, and responsiveness to make interfaces feel polished. I enjoy projects where the UI is an important part of the solution.
+              </p>
+              <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base flex items-start gap-2">
+                <FaBookOpen className="mt-1 flex-shrink-0 text-blue-500 dark:text-blue-400" />
+                <span>
+                  Outside programming, I enjoy playing sports and staying active. It helps me maintain focus, discipline, and a fresh mindset.
+                </span>
               </p>
             </div>
 
@@ -98,7 +90,7 @@ export default function About() {
                   1+
                 </div>
                 <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
-                  Years Experience
+                  Years Building
                 </div>
               </motion.div>
 
@@ -109,42 +101,27 @@ export default function About() {
                 className="flex flex-col items-center sm:items-start p-4 rounded-2xl bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 shadow-sm"
               >
                 <div className="text-purple-500 font-extrabold text-2xl sm:text-3xl">
-                  3
+                  3+
                 </div>
                 <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
-                  Happy Clients
+                  Real-world Projects
                 </div>
               </motion.div>
             </div>
 
+
+
             {/* CTA Button */}
             <div className="pt-4">
-              <motion.a
-                href="/Waheduzzaman_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium px-7 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 transition-all duration-300 group cursor-pointer"
-              >
-                <span>View Resume</span>
-                <FiDownload className="text-lg group-hover:translate-y-0.5 transition-transform" />
-              </motion.a>
+              <a href="#contact">
+                <button
+                  className="px-8 py-3 flex  justify-center items-center gap-2 rounded-md hover:rounded-full cursor-pointer font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 
+              shadow-lg shadow-cyan-500/20 hover:scale-105 transition">
+                  Hire Me <FaHandshake />
+                </button>
+              </a>
             </div>
 
-            {/* <div className="pt-4">
-              <motion.a
-                href="/Waheduzzaman_Resume.pdf"
-                download
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600
-                 hover:from-blue-500 hover:to-indigo-500 text-white font-medium px-7 py-3.5 rounded-xl shadow-lg shadow-blue-500/25 transition-all duration-300 group cursor-pointer"
-              >
-                <span>Download Resume</span>
-                <FiDownload className="text-lg group-hover:translate-y-0.5 transition-transform" />
-              </motion.a>
-            </div>  */}
           </motion.div>
 
 

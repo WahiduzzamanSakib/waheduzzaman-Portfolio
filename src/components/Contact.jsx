@@ -10,8 +10,8 @@ import {
   FaSpinner,
   FaPaperPlane,
   FaGithub,
-  FaClock,
-  FaMapMarkerAlt
+  FaPhone,
+  FaWhatsapp
 } from "react-icons/fa";
 
 export default function Contact() {
@@ -68,84 +68,157 @@ export default function Contact() {
       </div>
 
 
-      <section  className="pb-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <section className="pb-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch auto-rows-fr">
 
           {/* LEFT SIDE - Contact Form */}
+          <div className="lg:col-span-5 bg-[#0f0e38] h-full text-white rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between">
 
-          <div className="lg:col-span-5 bg-[#0f0e38] text-white rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between">
             <div>
+
               <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 Let's start a conversation
               </h2>
+
+
               <p className="text-slate-300 text-sm leading-relaxed mb-8">
-                Whether you're looking to collaborate, have a question, or just want to connect, I'm here and ready to help bring your ideas to life.
+                Whether you're looking to collaborate, have a question,
+                or just want to connect, I'm here and ready to help bring
+                your ideas to life.
               </p>
 
-              {/* Info Cards List */}
+
+
               <div className="space-y-4 mb-8">
 
-                {/* EMAIL CARD */}
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center text-slate-200 shrink-0">
-                    <FaEnvelope className="text-lg" />
+
+                {/* EMAIL */}
+
+                <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+
+                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center shrink-0">
+                    <FaEnvelope />
                   </div>
+
+
                   <div className="overflow-hidden">
-                    <p className="text-xs text-slate-400">Email me at</p>
-                    <a href="mailto:wahidzamanpg@gmail.com" className="text-sm font-semibold text-white hover:underline truncate block">
+
+                    <p className="text-xs text-slate-400">
+                      Email me at
+                    </p>
+
+
+                    <a
+                      href="mailto:wahidzamanpg@gmail.com"
+                      className="text-sm font-semibold hover:underline truncate block"
+                    >
                       wahidzamanpg@gmail.com
                     </a>
+
                   </div>
+
                 </div>
 
-                {/* GITHUB CARD */}
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center text-slate-200 shrink-0">
-                    <FaGithub className="text-lg" />
+
+
+
+
+                {/* PHONE */}
+
+                <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+
+                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center shrink-0">
+                    <FaPhone />
                   </div>
+
+
                   <div className="overflow-hidden">
-                    <p className="text-xs text-slate-400">Check my code on</p>
+                    <p className="text-xs text-slate-400">
+                      Call me at
+                    </p>
                     <a
-                      href="https://github.com/WahiduzzamanSakib"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-semibold text-white hover:underline truncate block"
+                      href="tel:+8801752187286"
+                      className="text-sm font-semibold hover:underline truncate block"
                     >
-                      Github
+                      +880 1752-187286
                     </a>
                   </div>
                 </div>
 
-                {/* LINKEDIN CARD */}
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center text-slate-200 shrink-0">
-                    <FaLinkedin className="text-lg text-blue-400" />
+
+                {/* WHATSAPP */}
+                {/* <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center shrink-0">
+                    <FaWhatsapp className="text-green-400" />
                   </div>
                   <div className="overflow-hidden">
-                    <p className="text-xs text-slate-400">Connect with me on</p>
+                    <p className="text-xs text-slate-400">
+                      WhatsApp me
+                    </p>
+
                     <a
-                      href="https://www.linkedin.com/in/waheduzzaman-md"
+                      href="https://wa.me/8801752187286"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-semibold text-white hover:underline truncate block"
+                      className="text-sm font-semibold hover:underline truncate block"
                     >
-                      Linkedin
+                      Chat on WhatsApp
                     </a>
                   </div>
-                </div>
+                </div> */}
 
+                {/* SOCIAL LINKS */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* GITHUB */}
+                  <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center shrink-0">
+                      <FaGithub />
+                    </div>
+
+                    <div>
+                      <a
+                        href="https://github.com/WahiduzzamanSakib"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-semibold hover:underline"
+                      >
+                        Github
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* LINKEDIN */}
+                  <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center shrink-0">
+                      <FaLinkedin className="text-blue-400" />
+                    </div>
+
+                    <div>
+                      <a
+                        href="https://www.linkedin.com/in/waheduzzaman-md"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-semibold hover:underline"
+                      >
+                        Linkedin
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Quick response badge */}
+            {/* STATUS */}
             <div className="mt-8 p-3 rounded-xl bg-[#1a1848] border border-indigo-900/30 flex items-center gap-2 text-xs text-slate-300">
               <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-              <span>Quick response guaranteed</span>
+              <span>
+                Available for freelance & collaboration
+              </span>
             </div>
           </div>
 
           {/* RIGHT SIDE - Information Panel */}
-          <div className="lg:col-span-7 bg-[#9da5b4] text-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-[#9da5b4] h-full text-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between">
             <div>
               {/* Header */}
               <div className="flex items-center mb-2 gap-2 text-2xl sm:text-3xl font-bold  text-slate-900">

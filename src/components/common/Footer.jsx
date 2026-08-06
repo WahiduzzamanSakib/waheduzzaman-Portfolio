@@ -25,11 +25,18 @@ const Footer = () => {
         };
     }, []);
 
+    const handleClick = (id) => {
+        document.getElementById(id)?.scrollIntoView({
+            behavior: "smooth",
+        });
+    };
+
+
     const links = [
-        ["About", "#about"],
-        ["Skills", "#skills"],
-        ["Projects", "#projects"],
-        ["Contact", "#contact"],
+        ["About", "about"],
+        ["Skills", "skills"],
+        ["Projects", "projects"],
+        ["Contact", "contact"],
     ];
 
     const container = {
@@ -50,7 +57,6 @@ const Footer = () => {
             },
         },
     };
-
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -97,6 +103,7 @@ const Footer = () => {
                     </motion.div>
 
 
+
                     {/* Navigation */}
                     <motion.div variants={item}>
                         <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
@@ -106,20 +113,19 @@ const Footer = () => {
                         <ul className="space-y-4">
                             {links.map(([name, link]) => (
                                 <li key={name}>
-                                    <a
-                                        href={link}
+                                    <button
+                                        onClick={() => handleClick(link)}
                                         className="group flex items-center gap-2 text-gray-400 dark:text-gray-300
-                                        hover:text-blue-600 dark:hover:text-cyan-300 transition-all duration-300"
+                                         hover:text-blue-600 dark:hover:text-cyan-300 transition-all duration-300 cursor-pointer"
                                     >
                                         <span
                                             className="opacity-0 -translate-x-2 group-hover:opacity-100
-                                            group-hover:translate-x-0 transition-all"
+                                         group-hover:translate-x-0 transition-all"
                                         >
                                             →
                                         </span>
-
                                         {name}
-                                    </a>
+                                    </button>
                                 </li>
                             ))}
                         </ul>
@@ -186,7 +192,7 @@ const Footer = () => {
                         © 2026 Waheduzzaman. All rights reserved.
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Built with ❤️  Next.js,
+                        Built with ❤️  Next.js
                     </p>
                     {/* <p className="text-sm text-gray-500 dark:text-gray-400">
                         Built with ❤️ using React.js, Node.js & MongoDB
