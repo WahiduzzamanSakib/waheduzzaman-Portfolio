@@ -124,7 +124,7 @@ const AllProjectsPage = () => {
                 </p>
 
                 {/* TAGS */}
-                <div className="flex flex-wrap gap-2 mt-6">
+                {/*  <div className="flex flex-wrap gap-2 mt-6">
 
                   {project.tags.map(tag => (
                     <span
@@ -135,13 +135,12 @@ const AllProjectsPage = () => {
                       {tag}
                     </span>
                   ))}
-                </div>
-
+                </div> */}
 
                 {/* BUTTONS */}
                 <div className="flex gap-4 mt-8">
 
-                  <a
+                  {/*    <a 
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -149,11 +148,13 @@ const AllProjectsPage = () => {
                     text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm"
                   >
                     <FaExternalLinkAlt /> Live Link
-                  </a>
+                  </a> */}
 
                   <Link
                     href={`/projects/${project.id}`}
-                    className="flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-gray-800 dark:border-white text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm"
+                    className="flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-gray-300 dark:border-white/20 bg-white dark:bg-[#1a1a49] text-gray-900 dark:text-white shadow-sm
+                   hover:bg-cyan-50 dark:hover:bg-cyan-400/10 hover:border-cyan-400 dark:hover:border-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400/20 hover:rounded-full
+                   hover:scale-105 active:scale-95 transition-all duration-300 text-sm font-medium"
                   >
                     View Details
                   </Link>

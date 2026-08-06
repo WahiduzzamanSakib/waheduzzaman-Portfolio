@@ -65,24 +65,20 @@ const Navbar = () => {
   }, []);
 
   // Smooth scroll
- const handleClick = (id) => {
-  setActive(id);
-  setMenuOpen(false);
+  const handleClick = (id) => {
+    setActive(id);
+    setMenuOpen(false);
 
-  if (pathname !== "/") {
-    window.location.href = `/#${id}`;
-    return;
-  }
+    if (pathname !== "/") {
+      window.location.replace(`/#${id}`);
+      return;
+    }
 
-  const section = document.getElementById(id);
-
-  if (section) {
-    window.scrollTo({
-      top: section.offsetTop - 90,
+    document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
-  }
-};
+  };
 
   return (
     <motion.nav

@@ -48,7 +48,7 @@ export default function Contact() {
 
   return (
 
-    <div id="contact" className="bg-green-50 dark:bg-[#06052e]">
+    <div id="contact" className="scrool-mt-24 bg-green-50 dark:bg-[#06052e]">
       {/* Header */}
 
       <div className="text-center pt-8  pb-10">

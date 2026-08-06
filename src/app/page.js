@@ -1,7 +1,5 @@
 "use client";
-
 import { useEffect } from "react";
-
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
@@ -13,19 +11,6 @@ import AllProjectsPage from "./projects/page.jsx";
 
 
 export default function Home() {
-
-  useEffect(() => {
-    const id = window.location.hash.replace("#", "");
-
-    if (id) {
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({
-          behavior: "smooth",
-        });
-      }, 200);
-    }
-  }, []);
-
 
   return (
     <div>
