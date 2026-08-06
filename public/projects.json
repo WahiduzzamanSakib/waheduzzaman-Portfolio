@@ -45,11 +45,28 @@
       "E-commerce"
     ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/sun-cart",
-    "serverRepo": "https://github.com/WahiduzzamanSakib/sun-cart-server",
+    "serverRepo": null,
     "live": "https://sun-cart-c2md.vercel.app/"
   },
   {
     "id": 4,
+    "title": "Weather App",
+    "desc": "A modern and responsive weather application built with React, Vite, and Tailwind CSS. Users can search weather by city, view current conditions, hourly and 7-day forecasts, or get weather for their current location using the Browser Geolocation API. Powered by the Open-Meteo API.",
+    "image": "https://i.ibb.co.com/n8101GHH/weather.png",
+    "tags": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "JavaScript",
+      "Open-Meteo API",
+      "Geolocation API"
+    ],
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Weather-App",
+    "serverRepo": null,
+    "live": "https://wahid-weather.netlify.app"
+  },
+  {
+    "id": 5,
     "title": "Github Issue Tracker",
     "desc": "Responsive Next.js application with issue tracking, API integration, and modern UI.",
     "image": "https://i.ibb.co.com/FqBfz6Y0/Gemini-Generated-Image-9qvy3q9qvy3q9qvy.png",
@@ -63,7 +80,7 @@
     "live": "https://assignment-05-lime-mu.vercel.app/"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Job Application Tracker",
     "desc": "Job application tracker dashboard with key metrics, filters, and quick actions to manage applications efficiently.",
     "image": "https://i.ibb.co.com/WWtzGBVY/Gemini-Generated-Image-s9vn4es9vn4es9vn.png",
@@ -77,7 +94,7 @@
     "live": "https://job-tracker-neon-delta.vercel.app/"
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Digital Tools Buying Website",
     "desc": "React shopping cart app with real-time cart updates and checkout.",
     "image": "https://i.ibb.co.com/jv15pZLQ/s.png",
@@ -94,7 +111,7 @@
     "live": "https://zesty-strudel-c8069a.netlify.app/"
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "Keep Your Friendships Alive",
     "desc": "React app for managing and viewing meaningful personal connections.",
     "image": "https://i.ibb.co.com/hxt6SRK9/Gemini-Generated-Image-szbst6szbst6szbs.png",
@@ -110,7 +127,7 @@
     "live": "https://cosmic-mandazi-95ced2.netlify.app/"
   },
   {
-    "id": 8,
+    "id": 9,
     "title": "Flower Shop",
     "desc": "A modern responsive flower shop website built with HTML and CSS using a clean UI, Flexbox, and CSS Grid.",
     "image": "https://i.ibb.co/jFv2HQG/flower2.png",
@@ -123,10 +140,10 @@
     ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/B12-02-Assignment",
     "serverRepo": null,
-    "live": "https://flower-shop-gamma-ashy.vercel.app/"
+    "live": "https://flower-shop-gamma-ashy.vercel.app"
   },
   {
-    "id": 9,
+    "id": 10,
     "title": "TechWave - Podcast Website",
     "desc": "Modern responsive podcast website using HTML/CSS with clean UI, CSS Grid, animations, and embedded video.",
     "image": "https://i.ibb.co/NgXr7Vw2/Assignment-02.png",
@@ -141,10 +158,10 @@
     ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-02",
     "serverRepo": null,
-    "live": "https://assignment-02-kappa-jade.vercel.app/"
+    "live": "https://assignment-02-kappa-jade.vercel.app"
   },
   {
-    "id": 10,
+    "id": 11,
     "title": "Web development learning journey",
     "desc": "A responsive web page built using HTML and CSS as part of my web development journey.",
     "image": "https://i.ibb.co/YFnfMgrj/Assignment-01.png",
@@ -154,6 +171,6 @@
     ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-01",
     "serverRepo": null,
-    "live": "https://assignment-01-axet.vercel.app/"
+    "live": "https://assignment-01-axet.vercel.app"
   }
 ]

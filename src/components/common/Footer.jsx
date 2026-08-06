@@ -67,7 +67,7 @@ const Footer = () => {
 
     return (
         <footer
-            className="w-full bg-cyan-950 dark:bg-[#131331] dark:text-white border-t border-cyan-600 dark:border-cyan-800 transition-colors duration-500"
+            className="w-full bg-gray-600 dark:bg-[#131331] dark:text-white border-t border-cyan-600 dark:border-cyan-800 transition-colors duration-500"
         >
             <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
 
@@ -91,11 +91,11 @@ const Footer = () => {
                             </span>
                         </h3>
 
-                        <p className="mt-3 text-sm font-medium text-cyan-700 dark:text-cyan-300">
+                        <p className="mt-3 text-sm font-medium text-white/90 dark:text-cyan-300">
                             MERN Stack Developer
                         </p>
 
-                        <p className="mt-6 max-w-md leading-relaxed text-gray-400 dark:text-gray-300">
+                        <p className="mt-6 max-w-md leading-relaxed text-white/90 dark:text-gray-300">
                             I build scalable full-stack web applications using MongoDB,
                             Express.js, React.js, and Node.js with modern interfaces,
                             clean architecture, and optimized performance.
@@ -115,7 +115,7 @@ const Footer = () => {
                                 <li key={name}>
                                     <button
                                         onClick={() => handleClick(link)}
-                                        className="group flex items-center gap-2 text-gray-400 dark:text-gray-300
+                                        className="group flex items-center gap-2 text-white/90 dark:text-gray-300
                                          hover:text-blue-600 dark:hover:text-cyan-300 transition-all duration-300 cursor-pointer"
                                     >
                                         <span

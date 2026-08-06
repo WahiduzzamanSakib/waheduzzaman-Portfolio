@@ -33,7 +33,7 @@ const skillCategories = [
     icon: <FaDatabase />,
     skills: [
       { name: "MongoDB", icon: <SiMongodb />, level: 85 },
-      { name: "NoSQL Design", icon: <FaDatabase />, level: 80 },
+      // { name: "NoSQL Design", icon: <FaDatabase />, level: 80 },
     ],
   },
   {
@@ -44,7 +44,6 @@ const skillCategories = [
       { name: "Git", icon: <FaGitAlt />, level: 90 },
       { name: "GitHub", icon: <FaGithub />, level: 90 },
       { name: "Figma", icon: <FaFigma />, level: 75 },
-      { name: "Postman", icon: <SiPostman />, level: 85 },
       { name: "npm", icon: <SiNpm />, level: 85 },
       { name: "Vercel", icon: <SiVercel />, level: 80 },
     ],

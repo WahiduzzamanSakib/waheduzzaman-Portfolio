@@ -30,7 +30,7 @@ const features = [
 
 export default function Features() {
   return (
-    <div className="relative dark:bg-[#06061f] overflow-hidden">
+    <div className="relative bg-gray-300 dark:bg-[#06061f] overflow-hidden">
       <section
         className="relative overflow-hidden py-16 px-6 md:px-12 max-w-7xl mx-auto"
       >
@@ -56,7 +56,7 @@ export default function Features() {
           </span>
 
           <p
-            className="mt-3 mx-auto max-w-2xl text-lg leading-8 text-white dark:text-gray-400">
+            className="mt-3 mx-auto max-w-2xl text-lg leading-8 text-black/80 dark:text-gray-400">
             Creating modern, fast and user-friendly digital experiences
             with clean design and powerful technology.
           </p>

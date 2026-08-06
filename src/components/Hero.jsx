@@ -41,9 +41,9 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden min-h-screen flex items-center pt-32 pb-20 px-6 md:px-12 lg:px-20   bg-[#050505]
-     dark:bg-gray-900 transition-colors duration-500">
-
+      className="relative overflow-hidden min-h-screen flex items-center pt-32 pb-20 px-6 md:px-12 lg:px-20
+  bg-gray-200 dark:bg-gray-900 transition-colors duration-500"
+    >
 
       {/* Background Animation and Grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -113,7 +113,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: .5, delay: .1 }}
-            className=" text-5xl md:text-7xl font-mono font-extrabold tracking-tight text-white dark:text-white mb-6">
+            className=" text-5xl md:text-7xl font-mono font-extrabold tracking-tight text-black/80 dark:text-white mb-6">
             Waheduzzaman
           </motion.h1>
 
@@ -142,7 +142,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: .5, delay: .3 }}
-            className=" text-lg leading-relaxed text-gray-300 dark:text-gray-400 mb-10">
+            className=" text-lg leading-relaxed text-black/80 dark:text-gray-400 mb-10">
             I build modern, responsive web applications using React, Next.js, and JavaScript technologies. Passionate about creating
             fast, accessible and beautiful digital experiences.
           </motion.p>
@@ -173,7 +173,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-medium
-                  border border-slate-600 text-white
+                  border border-slate-600 text-black/80 dark:text-white
                   hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-500/5
                   dark:border-gray-700 dark:hover:border-cyan-400
                   transition-all duration-300 cursor-pointer group"
@@ -192,7 +192,7 @@ const Hero = () => {
             className="flex items-center gap-4 justify-center lg:justify-start mt-8"
           >
             {socials.map((social, index) => {
-              const Icon = social.icon;
+              const Icon = social?.icon;
               return (
                 <motion.a
                   key={social.name}
@@ -203,7 +203,8 @@ const Hero = () => {
                   whileHover={{ y: -4 }}
                   whileTap={{ scale: 0.92 }}
                   className={`group relative flex items-center justify-center w-11 h-11 rounded-xl
-                    border border-slate-700 text-slate-400 bg-slate-900/40 backdrop-blur-sm
+                    border border-gray-300 text-gray-700 bg-white/80 dark:border-slate-700
+                  dark:text-slate-400 dark:bg-slate-900/40 backdrop-blur-sm
                     transition-all duration-300 ${social.hoverColor}`}
                 >
                   <Icon className="text-lg" />

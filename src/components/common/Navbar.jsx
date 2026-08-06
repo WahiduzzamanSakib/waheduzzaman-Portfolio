@@ -70,7 +70,7 @@ const Navbar = () => {
     setMenuOpen(false);
 
     if (pathname !== "/") {
-      window.location.replace(`/#${id}`);
+      window.location.replace(`/`);
       return;
     }
 
@@ -88,7 +88,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
 ${scrolled
           ? "bg-black/90 backdrop-blur-xl shadow-lg"
-          : "dark:bg-black/70 bg-gray-600 backdrop-blur-md"
+          : "dark:bg-black/70 bg-gray-300 backdrop-blur-md"
         }
 dark:text-white border-b border-white/10`}
     >

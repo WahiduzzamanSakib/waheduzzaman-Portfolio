@@ -54,14 +54,14 @@ const AllProjectsPage = () => {
     return (
       <section className="bg-gray-500 text-white py-20 text-center">
         <p className="text-primary animate-pulse">
-          Loading projects... <LuLoaderCircle className="animate-spin-slow inline-block w-6 h-6" />
+          <LuLoaderCircle className="animate-spin-slow inline-block w-6 h-6" />
         </p>
       </section>
     );
   }
 
   return (
-    <div className="pb-12 pt-24 px-6 md:px-12 border-t bg-gray-300 dark:bg-[#0b0b31] ">
+    <div className="scroll-mt-24 pb-12 pt-24 px-6 md:px-12 border-t bg-gray-300 dark:bg-[#0b0b31] ">
       <section
         id="projects"
         className=" max-w-7xl mx-auto  border-surface-bright"
