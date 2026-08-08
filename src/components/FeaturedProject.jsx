@@ -16,12 +16,11 @@ const FeaturedProjectsPage = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [projectDetails, setProjectDetails] = useState(null);
+
+  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-
   const projectsPerPage = 6;
-
   const totalPages = Math.ceil(projects.length / projectsPerPage);
-
   const currentProjects = projects.slice(
     (currentPage - 1) * projectsPerPage,
     currentPage * projectsPerPage
@@ -156,7 +155,7 @@ const FeaturedProjectsPage = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-black dark:border-cyan-400
-                    text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm"
+                    text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm cursor-pointer"
                   >
                     <FaExternalLinkAlt /> Live Link
                   </a>
@@ -165,7 +164,7 @@ const FeaturedProjectsPage = () => {
                     onClick={() => setProjectDetails(project)}
                     className="flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-gray-300 dark:border-white/20 bg-white dark:bg-[#1a1a49] text-gray-900 dark:text-white shadow-sm
   hover:bg-cyan-50 dark:hover:bg-cyan-400/10 hover:border-cyan-400 dark:hover:border-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400/20 hover:rounded-full
-  hover:scale-105 active:scale-95 transition-all duration-300 text-sm font-medium"
+  hover:scale-105 active:scale-95 transition-all duration-300 text-sm font-medium cursor-pointer"
                   >
                     View Details
                   </button>
@@ -181,9 +180,8 @@ const FeaturedProjectsPage = () => {
           />
         )}
 
-
+        {/* Pagination */}
         <div className="flex justify-center items-center gap-3 mt-10">
-
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
             disabled={currentPage === 1}
@@ -192,20 +190,18 @@ const FeaturedProjectsPage = () => {
             <FaChevronLeft />
           </button>
 
-
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentPage(index + 1)}
               className={`px-4 py-2 rounded-lg border cursor-pointer ${currentPage === index + 1
-                  ? "bg-secondary text-white"
-                  : ""
+                ? "bg-secondary text-white"
+                : ""
                 }`}
             >
               {index + 1}
             </button>
           ))}
-
 
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
@@ -214,9 +210,7 @@ const FeaturedProjectsPage = () => {
           >
             <FaChevronRight />
           </button>
-
         </div>
-
       </section>
     </div>
   );

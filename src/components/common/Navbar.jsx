@@ -64,21 +64,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll
-  // const handleClick = (id) => {
-  //   setActive(id);
-  //   setMenuOpen(false);
-
-  //   if (pathname !== "/") {
-  //     router.push(`/#${id}`);
-  //     return;
-  //   }
-
-  //   document.getElementById(id)?.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "start",
-  //   });
-  // };
   const handleClick = (id) => {
   setActive(id);
   setMenuOpen(false);

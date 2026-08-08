@@ -55,6 +55,10 @@ export default function Features() {
             What I Do Best
           </span>
 
+          <h1 className="text-center text-4xl font-bold font-mono text-gray-900 dark:text-white">
+            Building Modern Digital Experiences
+          </h1>
+
           <p
             className="mt-3 mx-auto max-w-2xl text-lg leading-8 text-black/80 dark:text-gray-400">
             Creating modern, fast and user-friendly digital experiences
@@ -64,7 +68,7 @@ export default function Features() {
 
         {/* Cards */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          className="-mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
 
           {features.map((feature, index) => {
             const Icon = feature.icon;
