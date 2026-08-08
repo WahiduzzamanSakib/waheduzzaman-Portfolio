@@ -1,57 +1,162 @@
 "use client";
 
-import {Envelope} from "@gravity-ui/icons";
-import {Button, Input, Label, Modal, Surface, TextField} from "@heroui/react";
+import Image from "next/image";
+import { Modal, Button } from "@heroui/react";
+import { FaGithub, FaExternalLinkAlt, FaCheckCircle, FaServer } from "react-icons/fa";
 
-export function ViewDetailsModalPage () {
+
+export function ViewDetailsModalPage({ project, onClose }) {
+
   return (
-    <Modal>
-      <Button variant="secondary">Open Contact Form</Button>
+    <Modal
+      isOpen={true}
+      onOpenChange={onClose}
+    >
+
       <Modal.Backdrop>
+
         <Modal.Container placement="auto">
-          <Modal.Dialog className="sm:max-w-md">
+
+          <Modal.Dialog className="sm:max-w-4xl">
+
+
             <Modal.CloseTrigger />
+
+
             <Modal.Header>
-              <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
-                <Envelope className="size-5" />
-              </Modal.Icon>
-              <Modal.Heading>Contact Us</Modal.Heading>
-              <p className="mt-1.5 text-sm leading-5 text-muted">
-                Fill out the form below and we'll get back to you. The modal adapts automatically
-                when the keyboard appears on mobile.
-              </p>
+              <Modal.Heading>
+                {project.title}
+              </Modal.Heading>
             </Modal.Header>
-            <Modal.Body className="p-6">
-              <Surface variant="default">
-                <form className="flex flex-col gap-4">
-                  <TextField className="w-full" name="name" type="text" variant="secondary">
-                    <Label>Name</Label>
-                    <Input placeholder="Enter your name" />
-                  </TextField>
-                  <TextField className="w-full" name="email" type="email" variant="secondary">
-                    <Label>Email</Label>
-                    <Input placeholder="Enter your email" />
-                  </TextField>
-                  <TextField className="w-full" name="phone" type="tel" variant="secondary">
-                    <Label>Phone</Label>
-                    <Input placeholder="Enter your phone number" />
-                  </TextField>
-                  <TextField className="w-full" name="company" variant="secondary">
-                    <Label>Company</Label>
-                    <Input placeholder="Enter your company name" />
-                  </TextField>
-                  <TextField className="w-full" name="message" variant="secondary">
-                    <Label>Message</Label>
-                    <Input placeholder="Enter your message" />
-                  </TextField>
-                </form>
-              </Surface>
+
+
+
+            <Modal.Body className="p-6 space-y-6">
+
+
+              {/* IMAGE */}
+              <div className="relative h-74 rounded-xl overflow-hidden">
+
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill priority
+                  className="object-cover"
+                />
+
+              </div>
+
+
+
+              {/* DESCRIPTION */}
+              <p className="text-gray-600 dark:text-gray-300">
+                {project.desc}
+              </p>
+
+
+
+              {/* TAGS */}
+              <div className="flex flex-wrap gap-2">
+
+                {project.tags.map((tag)=>(
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-full bg-cyan-100 text-cyan-700"
+                  >
+                    {tag}
+                  </span>
+                ))}
+
+              </div>
+
+
+
+              {/* FEATURES */}
+              {
+                project.features?.length > 0 && (
+
+                  <div>
+
+                    <h3 className="font-bold text-xl mb-3">
+                      Key Features
+                    </h3>
+
+
+                    {
+                      project.features.map((item,index)=>(
+                        <div
+                          key={index}
+                          className="flex gap-2 mb-2"
+                        >
+
+                          <FaCheckCircle className="text-green-500 mt-1"/>
+
+                          <p>
+                            {item}
+                          </p>
+
+                        </div>
+                      ))
+                    }
+
+                  </div>
+
+                )
+              }
+
+
+
+              {/* BUTTONS */}
+              <div className="flex gap-4 flex-wrap">
+
+
+                {
+                  project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      className=" flex justify-center items-center gap-2 px-5 py-3 rounded-xl border"
+                    >
+                      <FaExternalLinkAlt/>
+                      Live
+                    </a>
+                  )
+                }
+
+
+
+                {
+                  project.clientRepo && (
+                    <a
+                      href={project.clientRepo}
+                      target="_blank"
+                      className="flex justify-center items-center gap-2 px-5 py-3 rounded-xl border"
+                    >
+                      <FaGithub/>
+                      Client Repo
+                    </a>
+                  )
+                }
+
+                {
+                  project.serverRepo && (
+                    <a
+                      href={project.serverRepo}
+                      target="_blank"
+                      className="flex justify-center items-center gap-2 px-5 py-3 rounded-xl border"
+                    >
+                     <FaServer/>  Server Repo
+                    </a>
+                  )
+                }
+              </div>
             </Modal.Body>
             <Modal.Footer>
-              <Button slot="close" variant="secondary">
-                Cancel
+              <Button
+                onPress={onClose}
+              >
+                Close
               </Button>
-              <Button slot="close">Send Message</Button>
             </Modal.Footer>
           </Modal.Dialog>
         </Modal.Container>

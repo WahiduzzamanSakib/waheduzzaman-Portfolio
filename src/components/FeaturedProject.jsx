@@ -7,13 +7,25 @@ import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import { LuLoaderCircle } from "react-icons/lu";
+import { ViewDetailsModalPage } from "./ViewDetailsModal";
+
 
 
 const FeaturedProjectsPage = () => {
 
   const [projects, setProjects] = useState([]);
-
   const [loading, setLoading] = useState(true);
+  const [projectDetails, setProjectDetails] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const projectsPerPage = 6;
+
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+  const currentProjects = projects.slice(
+    (currentPage - 1) * projectsPerPage,
+    currentPage * projectsPerPage
+  );
 
   // Fetch Projects
   useEffect(() => {
@@ -60,7 +72,7 @@ const FeaturedProjectsPage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 flex items-center justify-between"
+          className="mb-16 text-center"
         >
           <div>
             <h2 className="text-4xl font-mono md:text-5xl font-bold text-primary">
@@ -70,28 +82,12 @@ const FeaturedProjectsPage = () => {
               Latest commercial projects and open source work.
             </p>
           </div>
-
-
-          <Link
-            href="/projects"
-            className="group flex items-center gap-3 px-5 py-3 rounded-full
-  bg-gray-700 text-white dark:bg-blue-900 dark:text-white
-  font-semibold shadow-md
-  hover:bg-secondary dark:hover:bg-blue-950
-  hover:shadow-lg hover:shadow-secondary/30
-  transition-all duration-300"
-          >
-            View All Projects
-            <FaArrowRight
-              className="transition-transform duration-300 group-hover:translate-x-2"
-            />
-          </Link>
         </motion.div>
 
         {/* PROJECT GRID */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
 
-          {projects.slice(0, 6).map((project, index) => (
+          {currentProjects.map((project, index) => (
             <motion.article
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
@@ -155,7 +151,7 @@ const FeaturedProjectsPage = () => {
                 {/* BUTTONS */}
                 <div className="flex gap-4 mt-8">
 
-                  {/*    <a 
+                  <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -163,21 +159,62 @@ const FeaturedProjectsPage = () => {
                     text-primary hover:bg-primary/5 hover:border-secondary hover:rounded-full transition text-sm"
                   >
                     <FaExternalLinkAlt /> Live Link
-                  </a> */}
+                  </a>
 
-                  <Link
-                    href={`/projects/${project.id}`}
+                  <button
+                    onClick={() => setProjectDetails(project)}
                     className="flex-1 flex justify-center items-center gap-2 py-3 rounded-lg border-2 border-gray-300 dark:border-white/20 bg-white dark:bg-[#1a1a49] text-gray-900 dark:text-white shadow-sm
-                   hover:bg-cyan-50 dark:hover:bg-cyan-400/10 hover:border-cyan-400 dark:hover:border-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400/20 hover:rounded-full
-                   hover:scale-105 active:scale-95 transition-all duration-300 text-sm font-medium"
+  hover:bg-cyan-50 dark:hover:bg-cyan-400/10 hover:border-cyan-400 dark:hover:border-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400/20 hover:rounded-full
+  hover:scale-105 active:scale-95 transition-all duration-300 text-sm font-medium"
                   >
                     View Details
-                  </Link>
-
+                  </button>
                 </div>
               </div>
             </motion.article>
           ))}
+        </div>
+        {projectDetails && (
+          <ViewDetailsModalPage
+            project={projectDetails}
+            onClose={() => setProjectDetails(null)}
+          />
+        )}
+
+
+        <div className="flex justify-center items-center gap-3 mt-10">
+
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="px-4 py-2 border rounded-lg disabled:opacity-40 cursor-pointer"
+          >
+            <FaChevronLeft />
+          </button>
+
+
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentPage(index + 1)}
+              className={`px-4 py-2 rounded-lg border cursor-pointer ${currentPage === index + 1
+                  ? "bg-secondary text-white"
+                  : ""
+                }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="px-4 py-2 border rounded-lg disabled:opacity-40 cursor-pointer"
+          >
+            <FaChevronRight />
+          </button>
+
         </div>
 
       </section>

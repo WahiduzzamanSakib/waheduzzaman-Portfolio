@@ -5,7 +5,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import { ThemeToggle } from "../theme-toggle";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import {  usePathname } from "next/navigation";
 
 
 
@@ -24,8 +24,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
-  const pathname = usePathname();
-  const router = useRouter();
+
 
   // Always set Home on reload
   useEffect(() => {
@@ -83,13 +82,6 @@ const Navbar = () => {
   const handleClick = (id) => {
   setActive(id);
   setMenuOpen(false);
-
-  if (pathname !== "/") {
-    router.push(`/#${id}`);
-    return;
-  }
-
-  window.history.pushState(null, "", `#${id}`);
 
   document.getElementById(id)?.scrollIntoView({
     behavior: "smooth",
