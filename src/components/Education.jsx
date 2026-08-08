@@ -34,9 +34,9 @@ function getProgress(startYear) {
 
 export default function Education() {
   return (
-    <div className="scrool-mt-24 bg-green-50/65">
+    <div  id="education" className="scrool-mt-24 bg-green-50/65">
       <section
-        id="education"
+       
         className="relative bg-green-50 dark:bg-[#0B1120] text-slate-800 dark:text-slate-200 px-6 py-20 transition-colors duration-300"
       >
         <div className="max-w-4xl mx-auto">

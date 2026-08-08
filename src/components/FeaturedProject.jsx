@@ -1,18 +1,18 @@
+
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight, FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import { LuLoaderCircle } from "react-icons/lu";
 
-const ITEMS_PER_PAGE = 9;
 
-const AllProjectsPage = () => {
+const FeaturedProjectsPage = () => {
 
   const [projects, setProjects] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+
   const [loading, setLoading] = useState(true);
 
   // Fetch Projects
@@ -36,19 +36,7 @@ const AllProjectsPage = () => {
     fetchProjects();
   }, []);
 
-  const totalPages = Math.ceil(
-    projects.length / ITEMS_PER_PAGE
-  );
 
-  const currentProjects = useMemo(() => {
-    const start =
-      (currentPage - 1) * ITEMS_PER_PAGE;
-
-    return projects.slice(
-      start,
-      start + ITEMS_PER_PAGE
-    );
-  }, [projects, currentPage]);
 
   if (loading) {
     return (
@@ -61,9 +49,9 @@ const AllProjectsPage = () => {
   }
 
   return (
-    <div id="projects" className="scroll-mt-24 pb-12 pt-24 px-6 md:px-12 border-t bg-gray-300 dark:bg-[#0b0b31] ">
+    <div id="projects" className="scroll-mt-24  py-12  px-6 md:px-12 border-t bg-gray-300 dark:bg-[#0b0b31] ">
       <section
-        
+
         className=" max-w-7xl mx-auto  border-surface-bright"
       >
         {/* HEADER */}
@@ -72,20 +60,38 @@ const AllProjectsPage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 flex  flex-col text-center"
+          className="mb-16 flex items-center justify-between"
         >
-          <h2 className="text-4xl font-mono md:text-5xl font-bold text-primary">
-            My Projects
-          </h2>
-          <p className="mt-2 text-lg text-on-surface-variant">
-            Latest commercial projects and open source work.
-          </p>
+          <div>
+            <h2 className="text-4xl font-mono md:text-5xl font-bold text-primary">
+              My Projects
+            </h2>
+            <p className="mt-2 text-lg text-on-surface-variant">
+              Latest commercial projects and open source work.
+            </p>
+          </div>
+
+
+          <Link
+            href="/projects"
+            className="group flex items-center gap-3 px-5 py-3 rounded-full
+  bg-gray-700 text-white dark:bg-blue-900 dark:text-white
+  font-semibold shadow-md
+  hover:bg-secondary dark:hover:bg-blue-950
+  hover:shadow-lg hover:shadow-secondary/30
+  transition-all duration-300"
+          >
+            View All Projects
+            <FaArrowRight
+              className="transition-transform duration-300 group-hover:translate-x-2"
+            />
+          </Link>
         </motion.div>
 
         {/* PROJECT GRID */}
-        <div className=" -mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-          {currentProjects.map((project, index) => (
+          {projects.slice(0, 6).map((project, index) => (
             <motion.article
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
@@ -93,7 +99,7 @@ const AllProjectsPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
 
-              className="group overflow-hidden rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl
+              className=" -mt-8 group overflow-hidden rounded-2xl bg-white/70 dark:bg-white/5 backdrop-blur-xl
           border border-gray-200 dark:border-white/10 shadow-lg shadow-black/5 dark:shadow-black/30
           hover:border-secondary/70 hover:shadow-xl hover:shadow-secondary/10 transition-all duration-500"
             >
@@ -124,7 +130,7 @@ const AllProjectsPage = () => {
                 </p>
 
                 {/* TAGS */}
-                 <div className="flex flex-wrap gap-2 mt-6">
+                <div className="flex flex-wrap gap-2 mt-6">
 
                   {project.tags.slice(0, 4).map((tag) => (
                     <span
@@ -174,55 +180,9 @@ const AllProjectsPage = () => {
           ))}
         </div>
 
-        {/* PAGINATION */}
-        {
-          totalPages > 1 && (
-            <div className="flex justify-center items-center cursor-pointer gap-3 mt-16">
-
-              <button
-                disabled={currentPage === 1}
-                onClick={() =>
-                  setCurrentPage(prev => prev - 1)
-                }
-                className="p-3 rounded-full border cursor-pointer border-surface-bright disabled:opacity-40">
-                <FaChevronLeft />
-              </button>
-
-              {
-                Array.from({
-                  length: totalPages
-                }).map((_, index) => (
-
-                  <button
-                    key={index}
-                    onClick={() =>
-                      setCurrentPage(index + 1)
-                    }
-                    className={`w-10 h-10 cursor-pointer rounded-full border transition
-                ${currentPage === index + 1
-                        ? "bg-secondary text-on-secondary border-secondary"
-                        : "border-surface-bright text-primary hover:border-secondary"
-                      }`}
-                  >
-                    {index + 1}
-                  </button>
-                ))
-              }
-
-              <button
-                disabled={currentPage === totalPages}
-                onClick={() =>
-                  setCurrentPage(prev => prev + 1)
-                }
-                className="p-3 rounded-full border cursor-pointer border-surface-bright disabled:opacity-40">
-                <FaChevronRight />
-              </button>
-            </div>
-          )
-        }
       </section>
     </div>
   );
 };
 
-export default AllProjectsPage;
+export default FeaturedProjectsPage;

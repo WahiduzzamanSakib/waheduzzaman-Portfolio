@@ -2,19 +2,28 @@
   {
     "id": 1,
     "title": "Property Rental & Booking Platform",
-    "desc": "A rental platform with property listings, bookings, payments, favorites, reviews, authentication, and admin management.",
+    "desc": "Quick Rent - A rental platform with property listings, bookings, payments, favorites, reviews, authentication, and admin management.",
     "image": "https://i.ibb.co/xKL3K7nd/Quick-Rent.png",
     "tags": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
       "MongoDB",
       "Express.js",
-      "Next.js",
       "JWT",
       "Authentication",
-      "Stripe"
+      "Stripe",
+      "Responsive Design"
+    ],
+    "features": [
+      "Complete Rental Marketplace: Tenants can explore, book, and pay for properties while owners can manage listings and bookings easily.",
+      "Secure Role-Based System: JWT authentication with separate access control and dashboards for Tenant, Owner, and Admin users",
+      "Complete Booking Workflow: Includes property approval, booking management, Stripe payment integration, transactions, and review system.",
+      "Stripe Payment Integration"
     ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/Quick-Rent",
     "serverRepo": "https://github.com/WahiduzzamanSakib/Quick-Rent-Server",
-    "live": "https://quick-rent-five.vercel.app"
+    "live": "https://quick-rent.onrender.com"
   },
   {
     "id": 2,
@@ -26,7 +35,18 @@
       "Express.js",
       "Next.js",
       "JWT",
-      "Authentication"
+      "Authentication",
+      "Tailwind CSS",
+      "Responsive Design",
+      "Dashboard",
+      "API Integration"
+    ],
+    "features": [
+      "Secure authentication with JWT, HTTP-only cookies, and protected routes.",
+      "Browse pets with search and filtering functionality.",
+      "Interactive adoption request system with user dashboard.",
+      "Pet owner dashboard for managing pet listings and adoption requests.",
+      "Responsive UI with Next.js, Tailwind CSS, dark/light theme, and smooth animations."
     ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platform",
     "serverRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platform-server",
@@ -35,7 +55,7 @@
   {
     "id": 3,
     "title": "Summer Essentials Store",
-    "desc": "E-commerce web app for browsing and viewing summer products with login and protected pages built using Next.js.",
+    "desc": "Modern e-commerce application built with Next.js featuring authentication, protected routes, dynamic product listing, user profile management, and responsive UI",
     "image": "https://i.ibb.co.com/tMW7THxY/sun-cart.png",
     "tags": [
       "Next.js",
@@ -44,9 +64,15 @@
       "Authentication",
       "E-commerce"
     ],
+    "features": [
+      "Full authentication system via BetterAuth supporting Email/Password, Google, and GitHub logins",
+      "Dynamic product listing driven by JSON data, featuring a Popular Products section and protected detail views.",
+      "Dedicated user profile page allowing logged-in users to view and update their profile details in real time",
+      "Fully responsive (Mobile, Tablet, Desktop) design built on Next.js App Router, Tailwind CSS, and HeroUI."
+    ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/sun-cart",
     "serverRepo": null,
-    "live": "https://sun-cart-c2md.vercel.app/"
+    "live": "https://sun-cart-c2md.vercel.app"
   },
   {
     "id": 4,
@@ -59,7 +85,16 @@
       "Tailwind CSS",
       "JavaScript",
       "Open-Meteo API",
-      "Geolocation API"
+      "Geolocation API",
+      "API Integration",
+      "Responsive Design",
+      "React Hooks"
+    ],
+    "features": [
+      "Real-time weather information with temperature, humidity, wind speed, pressure, feels like temperature, and weather conditions.",
+      "Search weather by city name with accurate location-based results and error handling for invalid searches.",
+      "Detailed weather forecasts including 24-hour hourly forecast and 7-day daily forecast.",
+      "Current location weather detection using Browser Geolocation API with automatic timezone support."
     ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/Weather-App",
     "serverRepo": null,
@@ -67,34 +102,6 @@
   },
   {
     "id": 5,
-    "title": "Github Issue Tracker",
-    "desc": "Responsive Next.js application with issue tracking, API integration, and modern UI.",
-    "image": "https://i.ibb.co.com/FqBfz6Y0/Gemini-Generated-Image-9qvy3q9qvy3q9qvy.png",
-    "tags": [
-      "Javascript",
-      "API Fetch",
-      "Tailwind CSS"
-    ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-05",
-    "serverRepo": null,
-    "live": "https://assignment-05-lime-mu.vercel.app/"
-  },
-  {
-    "id": 6,
-    "title": "Job Application Tracker",
-    "desc": "Job application tracker dashboard with key metrics, filters, and quick actions to manage applications efficiently.",
-    "image": "https://i.ibb.co.com/WWtzGBVY/Gemini-Generated-Image-s9vn4es9vn4es9vn.png",
-    "tags": [
-      "HTML",
-      "Tailwind CSS",
-      "Javascript"
-    ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-04",
-    "serverRepo": null,
-    "live": "https://job-tracker-neon-delta.vercel.app/"
-  },
-  {
-    "id": 7,
     "title": "Digital Tools Buying Website",
     "desc": "React shopping cart app with real-time cart updates and checkout.",
     "image": "https://i.ibb.co.com/jv15pZLQ/s.png",
@@ -106,12 +113,18 @@
       "Shopping Cart",
       "UI/UX"
     ],
+    "features": [
+      "Interactive Shopping Cart – Click a product to add it automatically to the cart.",
+      "Proceed to Checkout – Clears the cart for a seamless checkout experience.",
+      "Dynamic Navbar Count – The cart count updates in real-time when products are added.",
+      "Buy Now Feedback – Clicking “Buy Now”  displays an Added to cart” toast notification."
+    ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-06",
     "serverRepo": null,
-    "live": "https://zesty-strudel-c8069a.netlify.app/"
+    "live": "https://zesty-strudel-c8069a.netlify.app"
   },
   {
-    "id": 8,
+    "id": 6,
     "title": "Keep Your Friendships Alive",
     "desc": "React app for managing and viewing meaningful personal connections.",
     "image": "https://i.ibb.co.com/hxt6SRK9/Gemini-Generated-Image-szbst6szbst6szbs.png",
@@ -122,55 +135,14 @@
       "State Management",
       "Netlify"
     ],
+    "features": [
+      "Component-based architecture – The UI is structured into reusable React components, ensuring better organization, scalability, and maintainability.",
+      "Interactive user interface – Uses React state and event handling to create a dynamic and responsive user experience.",
+      "Live deployment – Hosted on Netlify for fast and reliable access from any device or browser.",
+      "Strengthening debugging and problem-solving skills in React development"
+    ],
     "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-07",
     "serverRepo": null,
-    "live": "https://cosmic-mandazi-95ced2.netlify.app/"
-  },
-  {
-    "id": 9,
-    "title": "Flower Shop",
-    "desc": "A modern responsive flower shop website built with HTML and CSS using a clean UI, Flexbox, and CSS Grid.",
-    "image": "https://i.ibb.co/jFv2HQG/flower2.png",
-    "tags": [
-      "HTML",
-      "CSS",
-      "Responsive Design",
-      "Flexbox",
-      "CSS Grid"
-    ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/B12-02-Assignment",
-    "serverRepo": null,
-    "live": "https://flower-shop-gamma-ashy.vercel.app"
-  },
-  {
-    "id": 10,
-    "title": "TechWave - Podcast Website",
-    "desc": "Modern responsive podcast website using HTML/CSS with clean UI, CSS Grid, animations, and embedded video.",
-    "image": "https://i.ibb.co/NgXr7Vw2/Assignment-02.png",
-    "tags": [
-      "HTML",
-      "CSS",
-      "Video",
-      "Z-index",
-      "Responsive",
-      "Grid",
-      "Animate.CSS"
-    ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-02",
-    "serverRepo": null,
-    "live": "https://assignment-02-kappa-jade.vercel.app"
-  },
-  {
-    "id": 11,
-    "title": "Web development learning journey",
-    "desc": "A responsive web page built using HTML and CSS as part of my web development journey.",
-    "image": "https://i.ibb.co/YFnfMgrj/Assignment-01.png",
-    "tags": [
-      "HTML",
-      "CSS"
-    ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-01",
-    "serverRepo": null,
-    "live": "https://assignment-01-axet.vercel.app"
+    "live": "https://cosmic-mandazi-95ced2.netlify.app"
   }
 ]
