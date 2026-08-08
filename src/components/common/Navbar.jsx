@@ -5,7 +5,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import { ThemeToggle } from "../theme-toggle";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 
 
@@ -25,6 +25,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
   const pathname = usePathname();
+  const router = useRouter();
 
   // Always set Home on reload
   useEffect(() => {
@@ -65,20 +66,36 @@ const Navbar = () => {
   }, []);
 
   // Smooth scroll
+  // const handleClick = (id) => {
+  //   setActive(id);
+  //   setMenuOpen(false);
+
+  //   if (pathname !== "/") {
+  //     router.push(`/#${id}`);
+  //     return;
+  //   }
+
+  //   document.getElementById(id)?.scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "start",
+  //   });
+  // };
   const handleClick = (id) => {
-    setActive(id);
-    setMenuOpen(false);
+  setActive(id);
+  setMenuOpen(false);
 
-    if (pathname !== "/") {
-      window.location.replace(`/`);
-      return;
-    }
+  if (pathname !== "/") {
+    router.push(`/#${id}`);
+    return;
+  }
 
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
+  window.history.pushState(null, "", `#${id}`);
+
+  document.getElementById(id)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
 
   return (
     <motion.nav
@@ -119,19 +136,20 @@ dark:text-white border-b border-white/10`}
          border-slate-700/60 bg-[#0f172a]/80 backdrop-blur-md shadow-lg">
           {navLinks.map((link) => (
             <a
-              key={link.href}
-              href={`#${link.href}`}
+              key={link?.href}
+              // href={`#${link.href}`}
+              href="#"
               onClick={(e) => {
                 e.preventDefault();
-                handleClick(link.href);
+                handleClick(link?.href);
               }}
-              className={`relative text-sm font-semibold transition-colors duration-300 ${active === link.href
+              className={`relative text-sm font-semibold transition-colors duration-300 ${active === link?.href
                 ? "text-cyan-400"
                 : "text-slate-300 hover:text-white"
                 }`}
             >
-              {link.name}
-              {active === link.href && (
+              {link?.name}
+              {active === link?.href && (
                 <motion.span
                   layoutId="underline"
                   className="absolute left-0 -bottom-2 w-full h-[2px] bg-cyan-400"
@@ -171,14 +189,14 @@ dark:text-white border-b border-white/10`}
         >
           {navLinks.map((link) => (
             <button
-              key={link.href}
-              onClick={() => handleClick(link.href)}
-              className={`text-sm font-medium cursor-pointer transition-colors duration-300 ${active === link.href
+              key={link?.href}
+              onClick={() => handleClick(link?.href)}
+              className={`text-sm font-medium cursor-pointer transition-colors duration-300 ${active === link?.href
                 ? "text-cyan-400"
                 : "text-gray-400 hover:text-white"
                 }`}
             >
-              {link.name}
+              {link?.name}
             </button>
           ))}
 
