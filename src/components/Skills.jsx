@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma, FaDatabase, FaCode, FaServer } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiJavascript, SiExpress, SiMongodb, SiPostman, SiStripe, SiNpm, SiVercel } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiJavascript, SiExpress, SiMongodb, SiPostman, SiStripe, SiNpm, SiVercel, SiNetlify, SiRender } from "react-icons/si";
 
 const skillCategories = [
   {
@@ -41,11 +41,17 @@ const skillCategories = [
     description: "Development tools and collaboration",
     icon: <FaGitAlt />,
     skills: [
-      { name: "Git", icon: <FaGitAlt />, level: 90 },
-      { name: "GitHub", icon: <FaGithub />, level: 90 },
+      { name: "Git & GitHub", icon: <FaGithub />, level: 90 },
       { name: "Figma", icon: <FaFigma />, level: 75 },
+      { name: "Postman", icon: <SiPostman />, level: 70 },
       { name: "npm", icon: <SiNpm />, level: 85 },
-      { name: "Vercel", icon: <SiVercel />, level: 80 },
+      {
+        name: "Vercel / Netlify",
+        icon: (
+          <div className="flex gap-2"> <SiVercel /> <SiNetlify /></div>
+        ),
+        level: 80
+      }
     ],
   },
 ];

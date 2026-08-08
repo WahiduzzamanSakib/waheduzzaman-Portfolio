@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Portfolio",
+  title: "Waheduzzaman | MERN Stack Developer",
   description: "Waheduzzaman's portfolio",
 };
 
