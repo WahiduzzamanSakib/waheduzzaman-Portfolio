@@ -23,13 +23,7 @@ export function ThemeToggle() {
       onClick={() =>
         setTheme(theme === "dark" ? "light" : "dark")
       }
-      className="
-      px-3
-      py-1
-      rounded
-      border
-      dark:border-gray-600
-      "
+      className="px-3 py-1 rounded border border-black dark:border-gray-600"
     >
 
       {theme === "dark" ? "☀️" : "🌙"}

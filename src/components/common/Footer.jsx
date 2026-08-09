@@ -110,7 +110,7 @@ const Footer = () => {
                             Quick Links
                         </h3>
 
-                        <ul className="grid grid-cols-2 gap-x-6 gap-y-4">
+                        <ul className="flex flex-col gap-4">
                             {links.map(([name, link]) => (
                                 <li key={name}>
                                     <button

@@ -149,7 +149,7 @@ dark:text-white border-b border-white/10`}
           <ThemeToggle />
 
           <button
-            className="md:hidden dark:text-white text-3xl"
+            className="md:hidden  dark:text-white text-black  text-3xl"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <HiX /> : <HiMenu />}

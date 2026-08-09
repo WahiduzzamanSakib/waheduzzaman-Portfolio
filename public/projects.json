@@ -31,9 +31,9 @@
       "Implement real-time chat between property owners and tenants.",
       "Introduce location-based search with interactive maps and advanced filtering."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Quick-Rentt",
-    "serverRepo": "https://github.com/WahiduzzamanSakib/Quick-Rent-Serverr",
-    "live": "https://quick-rent.onrender.com"
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Quick-Rent",
+    "serverRepo": "https://github.com/WahiduzzamanSakib/Quick-Rent-Server",
+    "live": "https://quick-rent-ecru.vercel.app"
   },
   {
     "id": 2,
@@ -68,9 +68,9 @@
       "Integrate AI-based pet matching recommendations based on user preferences.",
       "Add real-time messaging between adopters and pet owners."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platformm",
-    "serverRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platform-serverr",
-    "live": "https://pet-adoption-platform-i0zk.onrender.com"
+    "clientRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platform",
+    "serverRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platform-server",
+    "live": "https://pet-adoption-platform-flax.vercel.app"
   },
   {
     "id": 3,
@@ -100,9 +100,9 @@
       "Implement product reviews, ratings, and wishlist features.",
       "Add an admin dashboard for product and user management."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/sun-cartt",
+    "clientRepo": "https://github.com/WahiduzzamanSakib/sun-cart",
     "serverRepo": null,
-    "live": "https://sun-cart.onrender.com"
+    "live": "https://sun-cart-plum.vercel.app"
   },
   {
     "id": 4,
@@ -136,7 +136,7 @@
       "Implement weather history tracking and personalized forecasts.",
       "Add weather map visualization with interactive location data."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Weather-Appp",
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Weather-App",
     "serverRepo": null,
     "live": "https://wahid-weather.netlify.app"
   },
@@ -169,7 +169,7 @@
       "Implement user authentication and order history features.",
       "Integrate online payment gateway for real purchases."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-066",
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-06",
     "serverRepo": null,
     "live": "https://zesty-strudel-c8069a.netlify.app"
   },
@@ -201,7 +201,7 @@
       "Implement cloud database storage for saving user connections.",
       "Add reminders and notification features to maintain friendships."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-077",
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-07",
     "serverRepo": null,
     "live": "https://cosmic-mandazi-95ced2.netlify.app"
   }
