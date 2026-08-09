@@ -13,6 +13,7 @@ import {
   FaPhone,
   FaWhatsapp
 } from "react-icons/fa";
+import { IoIosSend } from "react-icons/io";
 
 export default function Contact() {
   const formRef = useRef(null);
@@ -147,25 +148,25 @@ export default function Contact() {
 
 
                 {/* WHATSAPP */}
-                {/* <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
+                <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
                   <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center shrink-0">
                     <FaWhatsapp className="text-green-400" />
                   </div>
                   <div className="overflow-hidden">
                     <p className="text-xs text-slate-400">
-                      WhatsApp me
+                      WhatsApp me 
                     </p>
 
                     <a
                       href="https://wa.me/8801752187286"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-semibold hover:underline truncate block"
+                      className="flex items-center justify-center gap-1 text-sm font-semibold hover:text-cyan-500 truncate"
                     >
-                      Chat on WhatsApp
+                      Chat on WhatsApp  <IoIosSend  size={20}/>
                     </a>
                   </div>
-                </div> */}
+                </div>
 
                 {/* SOCIAL LINKS */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -256,6 +257,22 @@ export default function Contact() {
                     className="w-full px-4 py-3.5 rounded-xl bg-[#c5cbd3] text-slate-900 placeholder-slate-500 border border-transparent focus:border-indigo-500 focus:bg-white focus:outline-none transition-all duration-200"
                   />
                 </div>
+
+
+                {/* Subject */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">
+                    SUBJECT
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    required
+                    placeholder="Project discussion / Collaboration"
+                    className="w-full px-4 py-3.5 rounded-xl bg-[#c5cbd3] text-slate-900 placeholder-slate-500 border border-transparent focus:border-indigo-500 focus:bg-white focus:outline-none transition-all duration-200"
+                  />
+                </div>
+
 
                 {/* Message */}
                 <div>

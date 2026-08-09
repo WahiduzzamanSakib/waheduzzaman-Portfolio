@@ -21,8 +21,18 @@
       "Complete Booking Workflow: Includes property approval, booking management, Stripe payment integration, transactions, and review system.",
       "Stripe Payment Integration"
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Quick-Rent",
-    "serverRepo": "https://github.com/WahiduzzamanSakib/Quick-Rent-Server",
+    "challenges": [
+      "Implementing a secure role-based authentication system with different access permissions for Tenant, Owner, and Admin users.",
+      "Managing complex booking workflows including property approval, payments, transactions, and review handling.",
+      "Integrating Stripe payment functionality while ensuring secure transaction processing and smooth user experience."
+    ],
+    "futurePlans": [
+      "Add advanced property recommendation features using AI-based suggestions.",
+      "Implement real-time chat between property owners and tenants.",
+      "Introduce location-based search with interactive maps and advanced filtering."
+    ],
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Quick-Rentt",
+    "serverRepo": "https://github.com/WahiduzzamanSakib/Quick-Rent-Serverr",
     "live": "https://quick-rent.onrender.com"
   },
   {
@@ -48,9 +58,19 @@
       "Pet owner dashboard for managing pet listings and adoption requests.",
       "Responsive UI with Next.js, Tailwind CSS, dark/light theme, and smooth animations."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platform",
-    "serverRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platform-server",
-    "live": "https://pet-adoption-platform-mu.vercel.app"
+    "challenges": [
+      "Building a secure adoption request workflow with proper authorization and protected dashboard access.",
+      "Implementing efficient search and filtering features for a large number of pet listings.",
+      "Managing user, pet owner, and adoption-related data synchronization across the application."
+    ],
+    "futurePlans": [
+      "Add online donation and sponsorship features for pets.",
+      "Integrate AI-based pet matching recommendations based on user preferences.",
+      "Add real-time messaging between adopters and pet owners."
+    ],
+    "clientRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platformm",
+    "serverRepo": "https://github.com/WahiduzzamanSakib/pet-adoption-platform-serverr",
+    "live": "https://pet-adoption-platform-i0zk.onrender.com"
   },
   {
     "id": 3,
@@ -68,11 +88,21 @@
       "Full authentication system via BetterAuth supporting Email/Password, Google, and GitHub logins",
       "Dynamic product listing driven by JSON data, featuring a Popular Products section and protected detail views.",
       "Dedicated user profile page allowing logged-in users to view and update their profile details in real time",
-      "Fully responsive (Mobile, Tablet, Desktop) design built on Next.js App Router, Tailwind CSS, and HeroUI."
+      "Fully responsive design built on Next.js App Router, Tailwind CSS, and HeroUI."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/sun-cart",
+    "challenges": [
+      "Implementing a complete authentication system with multiple login providers using BetterAuth.",
+      "Creating protected product detail pages and managing user profile updates securely.",
+      "Designing a responsive e-commerce interface that works smoothly across all devices."
+    ],
+    "futurePlans": [
+      "Add shopping cart and complete checkout functionality with payment integration.",
+      "Implement product reviews, ratings, and wishlist features.",
+      "Add an admin dashboard for product and user management."
+    ],
+    "clientRepo": "https://github.com/WahiduzzamanSakib/sun-cartt",
     "serverRepo": null,
-    "live": "https://sun-cart-c2md.vercel.app"
+    "live": "https://sun-cart.onrender.com"
   },
   {
     "id": 4,
@@ -96,7 +126,17 @@
       "Detailed weather forecasts including 24-hour hourly forecast and 7-day daily forecast.",
       "Current location weather detection using Browser Geolocation API with automatic timezone support."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Weather-App",
+    "challenges": [
+      "Handling API integration and displaying accurate weather data from external services.",
+      "Implementing browser geolocation functionality with proper permission handling.",
+      "Managing different weather states, loading conditions, and error scenarios efficiently."
+    ],
+    "futurePlans": [
+      "Add weather alerts and notification features for severe conditions.",
+      "Implement weather history tracking and personalized forecasts.",
+      "Add weather map visualization with interactive location data."
+    ],
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Weather-Appp",
     "serverRepo": null,
     "live": "https://wahid-weather.netlify.app"
   },
@@ -117,9 +157,19 @@
       "Interactive Shopping Cart – Click a product to add it automatically to the cart.",
       "Proceed to Checkout – Clears the cart for a seamless checkout experience.",
       "Dynamic Navbar Count – The cart count updates in real-time when products are added.",
-      "Buy Now Feedback – Clicking “Buy Now”  displays an Added to cart” toast notification."
+      "Buy Now Feedback – Clicking “Buy Now” displays an Added to cart toast notification."
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-06",
+    "challenges": [
+      "Managing real-time cart updates and maintaining accurate product state across components.",
+      "Creating a smooth checkout flow with proper user feedback interactions.",
+      "Building a responsive shopping interface with reusable React components."
+    ],
+    "futurePlans": [
+      "Add backend integration for product and order management.",
+      "Implement user authentication and order history features.",
+      "Integrate online payment gateway for real purchases."
+    ],
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-066",
     "serverRepo": null,
     "live": "https://zesty-strudel-c8069a.netlify.app"
   },
@@ -141,7 +191,17 @@
       "Live deployment – Hosted on Netlify for fast and reliable access from any device or browser.",
       "Strengthening debugging and problem-solving skills in React development"
     ],
-    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-07",
+    "challenges": [
+      "Designing reusable React components while maintaining clean and scalable project structure.",
+      "Managing application state and user interactions efficiently.",
+      "Creating an engaging user interface that provides a smooth experience."
+    ],
+    "futurePlans": [
+      "Add user authentication and personal friendship profiles.",
+      "Implement cloud database storage for saving user connections.",
+      "Add reminders and notification features to maintain friendships."
+    ],
+    "clientRepo": "https://github.com/WahiduzzamanSakib/Assignment-077",
     "serverRepo": null,
     "live": "https://cosmic-mandazi-95ced2.netlify.app"
   }
