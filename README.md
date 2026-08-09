@@ -9,6 +9,7 @@ Passionate about building full-stack applications, solving problems, and explori
 ## 🛠️ Technologies I Use
 
 ### Frontend
+- Next.js
 - React.js
 - JavaScript (ES6+)
 - HTML5 & CSS3
@@ -32,12 +33,12 @@ Passionate about building full-stack applications, solving problems, and explori
 ### 🏠 Property Rental Platform
 A full-stack rental platform with property listings, bookings, payments, favorites, reviews, secure authentication, and admin management.
  <br> 
-🔗 **Live Demo:** https://quick-rent-five.vercel.app 
+🔗 **Live Demo:** https://quick-rent-ecru.vercel.app
 
 ### 🐾 Pet Adoption Platform
 A MERN Stack application connecting pet owners, shelters, and adopters through pet listings, adoption requests, and management features.
  <br>  
- 🔗 **Live Demo:**  https://pet-adoption-platform-mu.vercel.app
+ 🔗 **Live Demo:**  https://pet-adoption-platform-flax.vercel.app
 
 ## 📈 Current Goals
 
@@ -48,7 +49,7 @@ A MERN Stack application connecting pet owners, shelters, and adopters through p
 
 ## 📫 Contact Me
 
-- Portfolio: https://waheduzzaman-portfolio.vercel.app
+- Portfolio: https://waheduzzaman.vercel.app
 - GitHub: https://github.com/WahiduzzamanSakib
 - LinkedIn: https://www.linkedin.com/in/waheduzzaman-md
 - Email: wahidzamanpg@gmail.com
