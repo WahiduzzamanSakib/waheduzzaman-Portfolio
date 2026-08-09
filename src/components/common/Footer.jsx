@@ -110,20 +110,25 @@ const Footer = () => {
                             Quick Links
                         </h3>
 
-                        <ul className="space-y-4">
+                        <ul className="grid grid-cols-2 gap-x-6 gap-y-4">
                             {links.map(([name, link]) => (
                                 <li key={name}>
                                     <button
                                         onClick={() => handleClick(link)}
-                                        className="group flex items-center gap-2 text-white/90 dark:text-gray-300
-                                         hover:text-blue-600 dark:hover:text-cyan-300 transition-all duration-300 cursor-pointer"
+                                        className="group flex items-center gap-2 
+                text-white/90 dark:text-gray-300
+                hover:text-blue-600 dark:hover:text-cyan-300 
+                transition-all duration-300 cursor-pointer"
                                     >
                                         <span
-                                            className="opacity-0 -translate-x-2 group-hover:opacity-100
-                                         group-hover:translate-x-0 transition-all"
+                                            className="opacity-0 -translate-x-2 
+                    group-hover:opacity-100
+                    group-hover:translate-x-0 
+                    transition-all"
                                         >
                                             →
                                         </span>
+
                                         {name}
                                     </button>
                                 </li>

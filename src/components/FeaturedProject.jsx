@@ -74,14 +74,14 @@ const FeaturedProjectsPage = () => {
 
           <Link
             href="/projects"
-            className="group flex items-center gap-3 px-5 py-3 rounded-full
+            className="group flex items-center gap-3 px-2 md:px-5 py-3 rounded-full
   bg-gray-700 text-white dark:bg-blue-900 dark:text-white
   font-semibold shadow-md
   hover:bg-secondary dark:hover:bg-blue-950
   hover:shadow-lg hover:shadow-secondary/30
   transition-all duration-300"
           >
-            View All Projects
+            View All
             <FaArrowRight
               className="transition-transform duration-300 group-hover:translate-x-2"
             />

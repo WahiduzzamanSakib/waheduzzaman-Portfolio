@@ -113,7 +113,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: .5, delay: .1 }}
-            className=" text-5xl md:text-7xl font-mono font-extrabold tracking-tight text-black/80 dark:text-white mb-6">
+            className=" text-3xl md:text-7xl font-mono font-extrabold tracking-tight text-black/80 dark:text-white mb-6">
             Waheduzzaman
           </motion.h1>
 
