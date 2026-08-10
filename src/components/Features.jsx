@@ -39,16 +39,21 @@ export default function Features() {
 
         {/* Top Left Soft Glow */}
         <div
-          className="absolute -left-32 top-[-160px] h-[420px] w-[420px] rounded-full bg-blue-500/[0.055] blur-[130px] dark:bg-cyan-500/30"
+          className="absolute -left-32 top-[-160px] h-[420px] w-[420px] rounded-full bg-blue-500/[0.055] blur-[130px] dark:bg-cyan-500/20"
+        />
+        <div
+          className="absolute -right-32 top-[-160px] h-[420px] w-[420px] rounded-full bg-blue-500/[0.055] blur-[130px] dark:bg-cyan-500/10"
         />
 
         {/* Bottom Right Soft Glow */}
         <div
-          className="absolute -bottom-40 -right-32 h-[430px] w-[430px] rounded-full bg-cyan-500/35 blur-[130px] dark:bg-cyan-500/30" />
+          className="absolute -bottom-40 -right-32 h-[430px] w-[430px] rounded-full bg-cyan-500/35 blur-[130px] dark:bg-cyan-500/20" />
+        <div
+          className="absolute -bottom-40 -left-32 h-[430px] w-[430px] rounded-full bg-cyan-500/35 blur-[130px] dark:bg-cyan-500/20" />
 
         {/* Small Center Glow */}
         <div
-          className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.025] blur-[100px] dark:bg-blue-500/35" />
+          className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.025] blur-[100px] dark:bg-blue-500/25" />
 
         {/* Very Subtle Grid */}
         <div

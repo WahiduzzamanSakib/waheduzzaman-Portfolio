@@ -61,13 +61,13 @@ const Hero = () => {
         />
 
         {/* Soft center glow */}
-        <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-3xl" />
 
 
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           {/* Left Glow */}
           <div
-            className=" absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-blue-500/[0.045] blur-[130px] dark:bg-cyan-500/30"
+            className=" absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-blue-500/[0.045] blur-[130px] dark:bg-cyan-500/20"
           />
 
           {/* Right Glow */}

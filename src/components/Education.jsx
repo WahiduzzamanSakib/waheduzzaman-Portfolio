@@ -40,7 +40,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative  overflow-hidden bg-slate-50 px-6 py-10 text-slate-800 transition-colors  duration-500 dark:bg-slate-900/80 dark:text-slate-200 sm:py-12"
+      className=" scroll-mt-24 relative  overflow-hidden bg-slate-50 px-6 py-10 text-slate-800 transition-colors  duration-500 dark:bg-slate-900/80 dark:text-slate-200 sm:py-12"
     >
       {/* BACKGROUND */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -49,16 +49,16 @@ export default function Education() {
 
         {/* Top Left Blue Glow */}
         <div
-          className="absolute -left-32 top-[-160px] h-[420px] w-[420px] rounded-full bg-blue-500/[0.055] blur-[130px] dark:bg-blue-500/25"
+          className="absolute -left-32 top-[-160px] h-[420px] w-[420px] rounded-full bg-blue-500/[0.055] blur-[130px] dark:bg-blue-500/10"
         />
 
         {/* Bottom Right Cyan Glow */}
         <div
-          className="absolute -bottom-40 -right-32 h-[430px] w-[430px] rounded-full bg-cyan-500/[0.05] blur-[130px] dark:bg-blue-500/35"
+          className="absolute -bottom-40 -right-32 h-[430px] w-[430px] rounded-full bg-cyan-500/[0.05] blur-[130px] dark:bg-blue-500/20"
         />
 
         {/* Center Glow */}
-        <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.025] blur-[100px] dark:bg-blue-500/35" />
+        <div className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.025] blur-[100px] dark:bg-blue-500/20" />
 
 
         {/* Very Subtle Grid */}

@@ -17,7 +17,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-white py-12 dark:bg-slate-950 sm:py-16"
+      className="scroll-mt-24 relative overflow-hidden bg-white py-12 dark:bg-slate-950 sm:py-16"
     >
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
