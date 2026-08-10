@@ -103,12 +103,12 @@ dark:text-white border-b border-white/10`}
             <Image src="/wahid.png"
               alt="Waheduzzaman portfolio logo"
               width={48} height={36}
-              className="rounded-[20%] object-cover mr-2" />
+              className="rounded-full border-2 hover:scale-105 border-cyan-400 object-cover mr-2" />
 
             <span
               className="hidden sm:inline  text-2xl font-bold bg-gradient-to-r  from-blue-400 via-cyan-500 to-indigo-900
                        dark:from-cyan-300 dark:via-blue-400 dark:to-indigo-400
-                        bg-clip-text text-transparent"
+                        bg-clip-text text-transparent hover:scale-105"
             >
               Waheduzzaman
             </span>
@@ -129,7 +129,7 @@ dark:text-white border-b border-white/10`}
                 e.preventDefault();
                 handleClick(link?.href);
               }}
-              className={`relative text-sm font-semibold transition-colors duration-300 ${active === link?.href
+              className={`relative text-sm font-semibold hover:scale-110 transition-colors duration-300 ${active === link?.href
                 ? "text-cyan-400"
                 : "text-slate-300 hover:text-white"
                 }`}

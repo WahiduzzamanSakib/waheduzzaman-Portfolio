@@ -3,16 +3,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import {
-  FaCheck,
-  FaLinkedin,
-  FaEnvelope,
-  FaSpinner,
-  FaPaperPlane,
-  FaGithub,
-  FaPhone,
-  FaWhatsapp
-} from "react-icons/fa";
+import {FaCheck, FaLinkedin, FaEnvelope, FaSpinner, FaPaperPlane, FaGithub, FaPhone, FaWhatsapp} from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
 
 export default function Contact() {
@@ -59,8 +50,6 @@ export default function Contact() {
           Get <span className="text-blue-400">In Touch</span>
         </h2>
 
-
-
         <p className="
             mt-4 max-w-xl mx-auto text-sm sm:text-base dark:text-white">
           Have a project idea or want to collaborate?
@@ -80,58 +69,39 @@ export default function Contact() {
               <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 Let's start a conversation
               </h2>
-
-
               <p className="text-slate-300 text-sm leading-relaxed mb-8">
                 Whether you're looking to collaborate, have a question,
                 or just want to connect, I'm here and ready to help bring
                 your ideas to life.
               </p>
 
-
-
               <div className="space-y-4 mb-8">
 
-
                 {/* EMAIL */}
-
                 <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
-
                   <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center shrink-0">
                     <FaEnvelope />
                   </div>
-
-
                   <div className="overflow-hidden">
 
                     <p className="text-xs text-slate-400">
                       Email me at
                     </p>
-
-
                     <a
                       href="mailto:wahidzamanpg@gmail.com"
                       className="text-sm font-semibold hover:underline truncate block"
                     >
                       wahidzamanpg@gmail.com
                     </a>
-
                   </div>
-
                 </div>
 
 
-
-
-
                 {/* PHONE */}
-
                 <div className="flex items-center gap-4 p-4 min-h-[72px] rounded-2xl bg-[#1e1c53] border border-indigo-900/40 hover:border-indigo-500/50 transition-all">
-
                   <div className="w-10 h-10 rounded-xl bg-[#2b286f] flex items-center justify-center shrink-0">
                     <FaPhone />
                   </div>
-
 
                   <div className="overflow-hidden">
                     <p className="text-xs text-slate-400">
@@ -280,9 +250,7 @@ export default function Contact() {
                     YOUR MESSAGE
                   </label>
                   <textarea
-                    name="message"
-                    rows={4}
-                    required
+                    name="message" rows={4} required
                     placeholder="Tell me about your project, collaboration ideas,"
                     className="w-full px-4 py-3.5 rounded-xl bg-[#c5cbd3] text-slate-900 placeholder-slate-500 border border-transparent focus:border-indigo-500 focus:bg-white focus:outline-none transition-all duration-200 resize-none"
                   />

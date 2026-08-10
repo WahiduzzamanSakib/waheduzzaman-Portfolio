@@ -1,4 +1,3 @@
-"use client";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
@@ -13,7 +12,7 @@ import FeaturedProjectsPage from "@/components/FeaturedProject";
 export default function Home() {
 
   return (
-    <div>
+    <main>
       <Hero />
       <About />
       <Features />
@@ -26,6 +25,6 @@ export default function Home() {
 
       <Education />
       <Contact />
-    </div>
+    </main>
   );
 }
