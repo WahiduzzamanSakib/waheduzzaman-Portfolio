@@ -22,9 +22,7 @@ const AllProjectsPage = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("/projects.json", {
-          cache: "no-store",
-        });
+        const res = await fetch("/projects.json");
 
         if (!res.ok) {
           throw new Error("Failed to load projects");
@@ -205,11 +203,10 @@ const AllProjectsPage = () => {
               {/* IMAGE */}
               <div className="relative h-56 overflow-hidden">
                 <Image
-                  src={project.image}
-                  alt={project.title}
+                  src={project?.image}
+                  alt={project?.title}
                   fill
                   className="object-cover saturate-50 transition-all duration-700 group-hover:scale-110 group-hover:saturate-100"
-                  priority={index < 3}
                 />
 
                 {/* Image Overlay */}
@@ -222,16 +219,16 @@ const AllProjectsPage = () => {
               {/* CONTENT */}
               <div className="relative p-7">
                 <h3 className="text-xl font-semibold text-primary transition-colors duration-300 group-hover:text-secondary">
-                  {project.title}
+                  {project?.title}
                 </h3>
 
                 <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-on-surface-variant dark:text-gray-400">
-                  {project.desc}
+                  {project?.desc}
                 </p>
 
                 {/* TAGS */}
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {project.tags.slice(0, 4).map((tag) => (
+                  {project?.tags?.slice(0, 4).map((tag) => (
                     <span
                       key={tag}
                       className="rounded-full border-2 border-cyan-800 bg-secondary/10 px-3 py-1 text-sm text-secondary transition-all duration-300 hover:scale-110 hover:bg-secondary hover:text-on-secondary dark:border-cyan-400/40 dark:bg-secondary/20"
@@ -240,11 +237,11 @@ const AllProjectsPage = () => {
                     </span>
                   ))}
 
-                  {project.tags.length > 4 && (
+                  {project?.tags?.length > 4 && (
                     <span
                       className="cursor-pointer rounded-full border-2 border-gray-400 bg-gray-200 px-3 py-1 text-sm text-gray-700 transition-all duration-300 hover:scale-110 dark:border-cyan-400 dark:bg-white/10 dark:text-gray-300"
                     >
-                      +{project.tags.length - 4} More
+                      +{project?.tags?.length - 4} More
                     </span>
                   )}
                 </div>

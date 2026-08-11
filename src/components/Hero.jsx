@@ -299,7 +299,7 @@ const Hero = () => {
             {/* Image wrapper */}
             <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white bg-slate-100 shadow-2xl shadow-blue-900/10 dark:border-slate-900 dark:bg-slate-800 dark:shadow-black/30">
               <Image
-                src="/wahid.png"
+                src="/wahid.webp"
                 alt="Md Waheduzzaman"
                 fill
                 priority

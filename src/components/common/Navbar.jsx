@@ -100,7 +100,7 @@ dark:text-white border-b border-white/10`}
         <div >
           <Link href="/" className="flex items-center">
             {/* Logo  */}
-            <Image src="/wahid.png"
+            <Image src="/wahid.webp"
               alt="Waheduzzaman portfolio logo"
               width={48} height={36}
               className="rounded-full border-2 hover:scale-105 border-cyan-400 object-cover mr-2" />

@@ -86,7 +86,7 @@ export default function About() {
                 <div className="relative h-[460px] overflow-hidden rounded-[1.5rem] bg-slate-100 dark:bg-slate-800">
 
                   <Image
-                    src="/wahid.png"
+                    src="/wahid.webp"
                     alt="Md. Waheduzzaman"
                     fill
                     priority
