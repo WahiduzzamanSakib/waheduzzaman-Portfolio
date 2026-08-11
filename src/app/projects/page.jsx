@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -9,36 +9,13 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import Link from "next/link";
-import { LuLoaderCircle } from "react-icons/lu";
+import projectsData from "../../../public/projects.json";
 
 const ITEMS_PER_PAGE = 9;
 
 const AllProjectsPage = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects] = useState(projectsData);
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-
-  // Fetch Projects
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await fetch("/projects.json");
-
-        if (!res.ok) {
-          throw new Error("Failed to load projects");
-        }
-
-        const data = await res.json();
-        setProjects(data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, []);
 
   const totalPages = Math.ceil(
     projects.length / ITEMS_PER_PAGE
@@ -53,61 +30,6 @@ const AllProjectsPage = () => {
       start + ITEMS_PER_PAGE
     );
   }, [projects, currentPage]);
-
-  // Loading
-  if (loading) {
-    return (
-      <section className="relative min-h-[70vh] overflow-hidden bg-white dark:bg-slate-950">
-        {/* Animated Left Glow */}
-        <motion.div
-          animate={{
-            x: [0, 70, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="pointer-events-none absolute -left-40 top-20 h-[420px] w-[420px] rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/20"
-        />
-
-        {/* Animated Right Glow */}
-        <motion.div
-          animate={{
-            x: [0, -60, 0],
-            y: [0, 40, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="pointer-events-none absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-cyan-500/10 blur-3xl dark:bg-cyan-500/20"
-        />
-
-        {/* Center Glow */}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-3xl" />
-
-        {/* Premium Grid */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.025] dark:opacity-[0.035] [background-image:linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] [background-size:48px_48px]" />
-
-        {/* Top Fade */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/90 to-transparent dark:from-slate-950/90" />
-
-        {/* Bottom Fade */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent dark:from-slate-950" />
-
-        <div className="relative flex min-h-[70vh] flex-col items-center justify-center gap-4">
-          <LuLoaderCircle className="animate-spin text-4xl text-cyan-500" />
-
-          <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
-            Loading projects...
-          </p>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section
@@ -261,7 +183,7 @@ const AllProjectsPage = () => {
                   */}
 
                   <Link
-                    href={`/ projects / ${ project.id } `}
+                    href={`/projects/${project.id}`}
                     className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white py-3 text-sm font-medium text-slate-900 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:rounded-full hover:border-cyan-400 hover:bg-cyan-50 hover:text-cyan-600 hover:shadow-lg hover:shadow-cyan-400/20 active:scale-95 dark:border-white/20 dark:bg-[#1a1a49] dark:text-white dark:hover:border-cyan-400 dark:hover:bg-cyan-400/10 dark:hover:text-cyan-400"
                   >
                     View Details
@@ -300,7 +222,7 @@ const AllProjectsPage = () => {
                 onClick={() =>
                   setCurrentPage(index + 1)
                 }
-                className={`h - 11 w - 11 cursor - pointer rounded - full border text - sm font - semibold transition - all duration - 300 ${
+                className={`h-11 w-11 cursor-pointer rounded-full border text-sm font-semibold transition-all duration-300 ${
   currentPage === index + 1
     ? "border-cyan-400 bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/20"
     : "border-slate-300 bg-white/70 text-primary hover:border-cyan-400 hover:bg-cyan-50 hover:text-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-cyan-400 dark:hover:bg-cyan-400/10"

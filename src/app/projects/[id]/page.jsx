@@ -1,10 +1,8 @@
 import ViewDetails from "./ViewDetails";
+import projects from "../../../../public/projects.json";
 
 const ViewDetailsPage = async ({ params }) => {
     const { id } = await params;
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/projects.json`);
-    const projects = await res.json();
     const project = projects.find(
         (item) => item.id === Number(id)
     );
@@ -12,6 +10,5 @@ const ViewDetailsPage = async ({ params }) => {
         <ViewDetails project={project} />
     );
 };
-
 
 export default ViewDetailsPage;
