@@ -1,11 +1,28 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { FiDownload, FiArrowRight } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa6";
 import { CgMail } from "react-icons/cg";
+
+// TypeAnimation is client-side only.
+// Loading it separately keeps it isolated from the main component.
+const TypeAnimation = dynamic(
+  () =>
+    import("react-type-animation").then(
+      (mod) => mod.TypeAnimation
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <span className="inline-block">
+        Frontend Developer
+      </span>
+    ),
+  }
+);
 
 const socials = [
   {
@@ -44,42 +61,53 @@ const Hero = () => {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden bg-white px-6 pb-20 pt-32 transition-colors duration-500 dark:bg-slate-950 md:px-12 lg:px-20"
     >
-
+      {/* Background Effects */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Cyan Glow */}
+        {/* Animated left glow */}
         <motion.div
-          animate={{ x: [0, 80, 0], y: [0, -40, 0], }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", }}
-          className="absolute left-[-10%] top-20 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl"
+          animate={{
+            x: [0, 50, 0],
+            y: [0, -25, 0],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute left-[-10%] top-20 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl will-change-transform"
         />
 
-        {/* Blue Glow */}
+        {/* Animated right glow */}
         <motion.div
-          animate={{ x: [0, -60, 0], y: [0, 50, 0], }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", }}
-          className="absolute bottom-0 right-[-10%] h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl"
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-0 right-[-10%] h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl will-change-transform"
         />
 
-        {/* Soft center glow */}
-        <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-3xl" />
+        {/* Center glow */}
+        <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/5 blur-3xl" />
 
+        {/* Bottom glows */}
+        <div className="absolute -left-40 bottom-0 h-[380px] w-[380px] rounded-full bg-blue-500/[0.04] blur-[110px] dark:bg-cyan-500/10" />
 
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          {/* Left Glow */}
-          <div
-            className=" absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-full bg-blue-500/[0.045] blur-[130px] dark:bg-cyan-500/20"
-          />
-
-          {/* Right Glow */}
-          <div
-            className=" absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-cyan-500/[0.04] blur-[140px] dark:bg-cyan-500/20 "
-          />
-        </div>
-
+        <div className="absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-cyan-500/[0.04] blur-[120px] dark:bg-cyan-500/10" />
 
         {/* Premium Grid */}
         <div
-          className="absolute inset-0 opacity-[0.025] dark:opacity-[0.035] [background-image:linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)] [background-size:48px_48px]"
+          className="
+            absolute inset-0
+            opacity-[0.025]
+            dark:opacity-[0.035]
+            [background-image:linear-gradient(to_right,#64748b_1px,transparent_1px),linear-gradient(to_bottom,#64748b_1px,transparent_1px)]
+            [background-size:48px_48px]
+          "
         />
 
         {/* Top fade */}
@@ -89,12 +117,13 @@ const Hero = () => {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent dark:from-slate-950" />
       </div>
 
-
+      {/* Main Content */}
       <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-16 lg:flex-row lg:gap-20">
 
-        {/* LEFT SIDE - Profile */}
+        {/* LEFT SIDE */}
         <div className="max-w-3xl text-center lg:text-left">
-          {/* Small Intro */}
+
+          {/* Intro */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -106,6 +135,7 @@ const Hero = () => {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-400 sm:text-sm">
               Hello, I&apos;m Md.
             </p>
+
             <span className="hidden h-px w-8 bg-cyan-500 sm:block lg:hidden" />
           </motion.div>
 
@@ -118,7 +148,16 @@ const Hero = () => {
               y: -5,
               scale: 1.02,
             }}
-            className="mb-5 cursor-default text-4xl font-black tracking-tight text-slate-900 transition-all duration-300 hover:text-cyan-500 dark:text-white dark:hover:text-cyan-400 sm:text-6xl md:text-7xl"
+            className="
+              mb-5 cursor-default
+              text-4xl font-black tracking-tight
+              text-slate-900
+              transition-all duration-300
+              hover:text-cyan-500
+              dark:text-white
+              dark:hover:text-cyan-400
+              sm:text-6xl md:text-7xl
+            "
           >
             Waheduzzaman
             <span className="ml-2 text-cyan-500">.</span>
@@ -132,6 +171,7 @@ const Hero = () => {
             className="mb-5 text-xl font-semibold text-slate-600 dark:text-slate-300 sm:text-2xl md:text-3xl"
           >
             <span className="mr-2">I&apos;m a</span>
+
             <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 bg-clip-text font-mono font-bold text-transparent">
               <TypeAnimation
                 sequence={[
@@ -182,27 +222,15 @@ const Hero = () => {
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="
-                group
-                inline-flex
-                items-center
-                justify-center
-                gap-3
+                group inline-flex items-center justify-center gap-3
                 rounded-xl
-                bg-gradient-to-r
-                from-blue-600
-                to-indigo-600
-                px-7
-                py-3.5
-                font-semibold
-                text-white
-                shadow-lg
-                shadow-blue-600/20
-                transition-all
-                duration-300
-                hover:from-blue-500
-                hover:to-cyan-500
-                hover:shadow-xl
-                hover:shadow-blue-500/25
+                bg-gradient-to-r from-blue-600 to-indigo-600
+                px-7 py-3.5
+                font-semibold text-white
+                shadow-lg shadow-blue-600/20
+                transition-all duration-300
+                hover:from-blue-500 hover:to-cyan-500
+                hover:shadow-xl hover:shadow-blue-500/25
               "
             >
               <span>Download Resume</span>
@@ -215,9 +243,28 @@ const Hero = () => {
               href="#projects"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="group inline-flex items-center justify-cente gap-2 rounded-xl border border-slate-300 bg-white/70 px-7 py-3.5 font-semibold text-slate-800 backdrop-blur-sm transition-all duration-300 hover:border-blue-400 hover:bg-blue-50 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-900/50 dark:text-white dark:hover:border-cyan-400 dark:hover:bg-cyan-500/5 dark:hover:text-cyan-400"
+              className="
+                group inline-flex items-center justify-center gap-2
+                rounded-xl
+                border border-slate-300
+                bg-white/70
+                px-7 py-3.5
+                font-semibold text-slate-800
+                backdrop-blur-sm
+                transition-all duration-300
+                hover:border-blue-400
+                hover:bg-blue-50
+                hover:text-blue-600
+                dark:border-slate-700
+                dark:bg-slate-900/50
+                dark:text-white
+                dark:hover:border-cyan-400
+                dark:hover:bg-cyan-500/5
+                dark:hover:text-cyan-400
+              "
             >
               <span>View Projects</span>
+
               <FiArrowRight className="text-lg transition-transform duration-300 group-hover:translate-x-1" />
             </motion.a>
           </motion.div>
@@ -230,7 +277,8 @@ const Hero = () => {
             className="mt-9 flex items-center justify-center gap-3 lg:justify-start"
           >
             {socials.map((social) => {
-              const Icon = social?.icon;
+              const Icon = social.icon;
+
               return (
                 <motion.a
                   key={social.name}
@@ -240,7 +288,19 @@ const Hero = () => {
                   aria-label={social.name}
                   whileHover={{ y: -4 }}
                   whileTap={{ scale: 0.92 }}
-                  className={`group relative flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white/70 text-slate-500 shadow-sm backdrop-blur-sm transition-all duration-300 dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-400
+                  className={`
+                    group relative flex h-11 w-11
+                    items-center justify-center
+                    rounded-xl
+                    border border-slate-200
+                    bg-white/70
+                    text-slate-500
+                    shadow-sm
+                    backdrop-blur-sm
+                    transition-all duration-300
+                    dark:border-slate-800
+                    dark:bg-slate-900/50
+                    dark:text-slate-400
                     ${social.hoverColor}
                   `}
                 >
@@ -248,7 +308,19 @@ const Hero = () => {
 
                   {/* Tooltip */}
                   <span
-                    className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 rounded-lg bg-slate-900 px-2.5 py-1.5 text-xs font-medium text-white opacity-0 shadow-lg transition-all duration-200 group-hover:-translate-y-1 group-hover:opacity-100 dark:bg-white dark:text-slate-900"
+                    className="
+                      pointer-events-none absolute -top-10 left-1/2
+                      -translate-x-1/2
+                      rounded-lg
+                      bg-slate-900
+                      px-2.5 py-1.5
+                      text-xs font-medium text-white
+                      opacity-0 shadow-lg
+                      transition-all duration-200
+                      group-hover:-translate-y-1
+                      group-hover:opacity-100
+                      dark:bg-white dark:text-slate-900
+                    "
                   >
                     {social.name}
                   </span>
@@ -258,18 +330,33 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* RIGHT SIDE — Profile */}
+        {/* RIGHT SIDE */}
         <div className="relative h-72 w-72 shrink-0 sm:h-80 sm:w-80 md:h-96 md:w-96">
+
           {/* Available Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="absolute -top-10 left-1/2 z-50 -translate-x-1/2 whitespace-nowrap rounded-full border border-cyan-400/30 bg-white/90 px-4 py-2 shadow-lg shadow-cyan-500/10 backdrop-blur-md dark:bg-slate-900/90 sm:-top-8 md:left-auto md:right-2 md:translate-x-0"
+            className="
+              absolute -top-10 left-1/2 z-50
+              -translate-x-1/2
+              whitespace-nowrap
+              rounded-full
+              border border-cyan-400/30
+              bg-white/90
+              px-4 py-2
+              shadow-lg shadow-cyan-500/10
+              backdrop-blur-md
+              dark:bg-slate-900/90
+              sm:-top-8
+              md:left-auto md:right-2 md:translate-x-0
+            "
           >
             <div className="flex items-center gap-2">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60" />
+
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
               </span>
 
@@ -287,37 +374,41 @@ const Hero = () => {
             whileHover={{ y: -8 }}
             className="relative h-full w-full"
           >
-            {/* Glow */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-3xl" />
+            {/* Profile Glow */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/15 via-blue-500/15 to-purple-500/15 blur-3xl" />
 
-            {/* Outer ring */}
+            {/* Outer Ring */}
             <div className="absolute inset-0 scale-110 rounded-full border border-blue-500/20 dark:border-cyan-500/20" />
 
-            {/* Inner ring */}
-            <div className="absolute inset-0 scale-[1.04] rounded-full border-2 border-cyan-500/50 " />
+            {/* Inner Ring */}
+            <div className="absolute inset-0 scale-[1.04] rounded-full border-2 border-cyan-500/50" />
 
-            {/* Image wrapper */}
+            {/* Image */}
             <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white bg-slate-100 shadow-2xl shadow-blue-900/10 dark:border-slate-900 dark:bg-slate-800 dark:shadow-black/30">
               <Image
                 src="/wahid.webp"
                 alt="Md Waheduzzaman"
                 fill
                 priority
+                sizes="
+                  (max-width: 640px) 288px,
+                  (max-width: 768px) 320px,
+                  384px
+                "
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
 
-              {/* Image overlay */}
+              {/* Image Overlay */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-t from-blue-950/20 via-transparent to-transparent" />
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Section Bottom Divider */}
+      {/* Bottom Divider */}
       <div className="absolute bottom-0 left-1/2 h-1 w-full -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent" />
     </section>
   );
 };
 
 export default Hero;
-
