@@ -89,7 +89,6 @@ export default function About() {
                     src="/wahid.webp"
                     alt="Md. Waheduzzaman"
                     fill
-                    priority
                     className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                   />
 

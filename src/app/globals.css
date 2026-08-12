@@ -217,3 +217,129 @@
     transform: none;
   }
 }
+
+
+/*  ABOUT SECTION ANIMATIONS */
+.about-animate {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.about-heading {
+  animation: aboutHeadingIn 0.6s ease-out forwards;
+}
+
+.about-image {
+  animation: aboutImageIn 0.7s ease-out 0.05s forwards;
+}
+
+.about-content {
+  animation: aboutContentIn 0.7s ease-out 0.15s forwards;
+}
+
+/*  KEYFRAMES */
+@keyframes aboutHeadingIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aboutImageIn {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutContentIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*  FLOATING REACT BADGE  */
+.about-react-badge {
+  animation: reactBadgeFloat 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes reactBadgeFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/*  FLOATING NEXT BADGE */
+.about-next-badge {
+  animation: nextBadgeFloat 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes nextBadgeFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/*  READ MORE Framer Motion replacement */
+.about-read-more {
+  animation: aboutReadMore 0.35s ease-out forwards;
+  overflow: hidden;
+}
+
+@keyframes aboutReadMore {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    max-height: 300px;
+    transform: translateY(0);
+  }
+}
+
+/*  MOBILE */
+@media (max-width: 767px) {
+  .about-image {
+    animation-delay: 0.05s;
+  }
+  .about-content {
+    animation-delay: 0.1s;
+  }
+}
+
+/*  REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .about-animate,
+  .about-react-badge,
+  .about-next-badge,
+  .about-read-more {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

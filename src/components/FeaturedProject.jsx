@@ -124,11 +124,11 @@ const FeaturedProjectsPage = () => {
               {/* CONTENT */}
               <div className="relative p-7">
                 <h3 className="text-xl font-semibold text-slate-900 transition-colors duration-300 group-hover:text-cyan-500 dark:text-white dark:group-hover:text-cyan-400">
-                  {project.title}
+                  {project?.title}
                 </h3>
 
                 <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-slate-500 dark:text-gray-400">
-                  {project.desc}
+                  {project?.desc}
                 </p>
 
                 {/* TAGS */}
