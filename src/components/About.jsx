@@ -8,7 +8,7 @@ import {
   SiNextdotjs,
   SiReact,
   SiTailwindcss,
-  SiTypescript,
+
 } from "react-icons/si";
 
 export default function About() {
